@@ -1,0 +1,307 @@
+@charset 'utf-8';
+@import '_common.scss';
+
+%fontsw{ font-size: 24px; font-weight: 800;}
+%small{ display: block; color: #6E839D; margin: 10px 0 35px 0; @include font(14px,)}
+
+%popbg { position: fixed; width: 100%; min-width: 1440px; height: 100vh;
+    left: 0; top: 0; background: rgba(0,0,0,0.7); z-index: 19;
+}
+%popdiv{ position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); padding: 50px;
+    width: 80%; max-height: 80%; margin: 0 auto;
+    background: white; box-sizing: border-box; border-radius: 15px; z-index: 20;
+}
+%popbtn{ position: absolute; right: -30px; top: -30px; width: 30px; height: 30px;
+    background: url('../img/ic_close1.png') no-repeat 0 0 transparent;
+    opacity: 0.3; border: none;
+}
+
+
+
+body{ min-width: 1440px;
+    .tab{ width: 82%; margin: 0 auto; padding: 170px 40px 0 40px;
+        h2{ width: 100%; font-weight: 800; font-size: 34px; margin-bottom: 33px;}
+        nav{ width: 100%; margin-bottom: 50px;
+            ul:nth-of-type(1){ @include flex();
+                border-bottom: 2px solid #ddd;
+                li{width: 25%; text-align: center; font-size: 22px; padding-bottom: 15px; cursor: pointer;
+                    &:nth-of-type(1){ font-weight: 800; position: relative;
+                        &::after{
+                            @include afbe(); height: 2px; width: 100%; background: $color;
+                            position: absolute; left: 0; bottom: -2px;
+                        }
+                    }
+                    &:hover{font-weight: 800; position: relative;
+                        &::after{
+                            @include afbe(); height: 2px; width: 100%; background: $color;
+                            position: absolute; left: 0; bottom: -2px;
+                        }
+                    }
+                }
+            }
+            ul:nth-of-type(2){ @include flex(flex-start); margin-top: 16px;
+                li{ color: #777; margin-right: 60px; padding-bottom: 13px;  cursor: pointer;
+                    &:nth-of-type(2){ font-weight: 800; color: #333; position: relative;
+                        &::after{ 
+                            @include afbe(); height: 6px; width: 6px; border-radius: 3px; background: $color;
+                            position: absolute; left: calc(50% - 3px); bottom: 0;
+                        }
+                    }
+                    &:hover{font-weight: 800; color: #333; position: relative;
+                        &::after{ 
+                            @include afbe(); height: 6px; width: 6px; border-radius: 3px; background: $color;
+                            position: absolute; left: calc(50% - 3px); bottom: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .detail{
+        @include flex(); width: 82%; margin: 0 auto; padding: 0 40px;
+        .half{ width: 600px;
+            h2{@include font(40px,100); margin-bottom: 10px;}
+            span{ display: block; width: 500px; line-height: 1.35; font-weight: 400; }
+            div{ position: relative; width: 500px; margin: 15px;
+                p:nth-of-type(1){  width: 470px; transform: translate(15px,15px);
+                    img{ width: 100%;}
+                }
+                p:nth-of-type(2){ position: absolute; left: 0; top: 0;
+                    img{ width: 100%;}
+                }
+            }
+        }
+        
+        .select{
+            width: 710px; padding-top: 53px;
+            
+            .size{
+                h2{ @extend %fontsw; margin-bottom: 35px; }
+                article{ @include flex( flex-start); width: 345px; height: 100px;
+                    border-radius: 15px; overflow: hidden;  @include boxshadow(0.2);
+                    h3{ width: 120px; height: 100%; color: white; background: #B40E29;
+                        @include font(40px,800); text-align: center; line-height: 110px;
+                    }
+                    a{ width: 225px; height: 100%; background: $color; text-align: end;
+                        padding: 20px 40px; box-sizing: border-box; line-height: 1.5;
+                        span:nth-of-type(1){ color: white; display: block; @include font(16px,); text-decoration:line-through;}
+                        span:nth-of-type(2){ color: white; display: block;@include font(30px,) }
+                    }
+                }
+                & > div{ @include flex(flex-start); margin-top: 15px;
+                    span:nth-of-type(1){ @include flex(flex-start); font-weight: 600;
+                        &::after{ @include afbe(); width: 2px; height: 16px; background: #ddd; margin: 1px 10px;}
+                    }
+                    span:nth-of-type(2){ color: $color; font-weight: 600;}
+                }
+            }
+
+            .edge{ margin-top: 53px;
+                h2{ @extend %fontsw;}
+                small{ @extend %small;}
+                div{ width: 160px; height: 230px; @include border($color); background: white;
+                    border-radius: 15px; padding: 20px 0; box-sizing: border-box; cursor: pointer;
+                    text-align: center; @include boxshadow();
+                    p{ width: 80%; margin: 0 auto;
+                        img{ width: 100%;}
+                    }
+                    span{ display: block; margin: 20px; font-weight: 800;}
+                }
+            }
+
+            .topping{ margin-top: 53px; padding-bottom: 50px; overflow: hidden;
+                h2{@extend %fontsw;}
+                small{ @extend %small;}
+                .tpselect{ @include flex(); position: relative;
+                    .tplist{ text-align: center; padding-top: 20px;
+                        p{ width: 80px; margin: 0 auto;
+                            img{ width: 100%;}
+                        }
+                        span{ display: block; padding: 10px 0;}
+                        h3{ margin-bottom: 20px;}
+                        a{ width: 24px; height: 24px;
+                            img{ width: 24px;}
+                        }
+                    }
+                }
+            }
+
+            .quantity{ margin-top: 53px;
+                h2{@extend %fontsw;}
+                div{ width: 100%; height: 80px; @include border(rgb(221, 221, 221)); border-radius: 40px;
+                    display: flex; align-items: center; justify-content: space-between;
+                    margin: 35px 0 20px 0;
+                    button:nth-of-type(1){ background: none; padding: 0 30px;
+                        @include font(40px,300); color: #aaa; border: none;
+                    }
+                    span{ @include font(20px,)}
+                    button:nth-of-type(2){ background: none; padding: 0 30px;
+                        @include font(40px,300); color: #aaa; border: none;
+                    }
+                }
+                small{ @extend %small;}
+            }
+
+            .side{ margin-top: 53px; padding-bottom: 50px; overflow: hidden;
+                h2{@extend %fontsw;}
+                & > small{ @extend %small;}
+                .sdselect{ @include flex();
+                    .sdlist{ text-align: center; padding-top: 20px;
+                        position: relative; height: 280px;
+                        figure{ position: absolute; right: 10px; top: 10px; display: none;
+                            figcaption{ width: 38px; height: 20px; background: #DE4B50; color: white;
+                                @include font(12px,); line-height: 1.8; border-radius: 10px;
+                            }
+                            p{ transform: translate(20px,-1px); width: 11px;
+                                img{ width: 100%; }
+                            }
+                        }
+                        &:nth-of-type(1) figure,&:nth-of-type(2) figure,&:nth-of-type(3) figure,
+                        &:nth-of-type(4) figure,&:nth-of-type(16) figure,&:nth-of-type(17) figure{display: block;}
+
+
+                        & > p{ width: 120px; height: 120px; margin: 0 auto; margin-bottom: 10px;
+                            img{ width: 100%; }
+                        }
+                        & > small{  display: block; padding: 20px 0;}
+                        article{ display: flex; align-items: center; justify-content: center;
+                            margin-bottom: 20px;
+                            small{ margin-right: 10px; color: #aaa; @include font(14px,0); text-decoration:line-through;}
+                        }
+                        div{ width: 90px; height: 20px; margin: 0 auto; padding: 5px 0;
+                            border: 1px solid rgb(221, 221, 221); border-radius: 15px;
+                            display: flex; align-items: center; justify-content: space-between;
+                            button:nth-of-type(1){ background: none; padding: 0 10px; color: #aaa; border: none;}
+                            button:nth-of-type(2){ background: none; padding: 0 10px; color: #aaa; border: none;}
+                        }
+                    }
+                }
+            }
+
+            .drink{ margin-top: 53px;  padding-bottom: 50px; overflow: hidden;
+                h2{@extend %fontsw;}
+                .drselect{ @include flex();
+                    .drlist{ text-align: center;  padding-top: 20px; 
+                        display: flex; align-items: center; justify-content: space-between; flex-direction: column;
+                        p{width: 120px; height: 120px; margin: 0 auto;
+                            img{ width: 100%; }
+                        }
+                        span{ display: block; padding: 10px 0;}
+                        h3{ margin-bottom: 20px;}
+                        div{ width: 90px; height: 20px; margin: 0 auto; padding: 5px 0;
+                            border: 1px solid rgb(221, 221, 221); border-radius: 15px;
+                            display: flex; align-items: center; justify-content: space-between;
+                            button:nth-of-type(1){ background: none; padding: 0 10px; color: #aaa; border: none;}
+                            button:nth-of-type(2){ background: none; padding: 0 10px; color: #aaa; border: none;}
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    .nutrition{
+        .facts{
+            text-align: center; margin: 50px 0 160px 0; 
+            button{ width: 260px; height: 60px; margin: 0 10px; background: #f7f7f7; color: #777; 
+                border: 1px solid #ddd; border-radius: 10px;
+            }
+        }
+        .facpop1{ @extend %popbg;
+            & > div{ @extend %popdiv;  height: 80%;
+                div{ position: relative; text-align: center; margin-bottom: 30px;
+                    h1{ @include font(30px,800)}
+                    button{ @extend %popbtn;}
+                }
+
+                ul{  overflow-y: scroll; height: calc(100% - 80px); @include flex(); flex-wrap: wrap;
+                    padding-left: 100px;
+                    li{ width: 50%; display: flex; align-items: center; justify-content: flex-start;
+                        p{ width: 30%;
+                            img{ width: 120px;}
+                        }
+                        article{ width: 70%; line-height: 2;
+                            h2{ @include font(20px,600)}
+                            small{ @include font(16px,400)}
+                        }
+                    }
+                }
+                & > small{ @extend %small; margin: 0;}
+            }
+        }
+        .facpop2{ @extend %popbg;
+            & > div{ @extend %popdiv;
+                div{ position: relative; text-align: center; margin-bottom: 30px;
+                    h1{ @include font(30px,800)}
+                    button{ @extend %popbtn; }
+                }
+                table{ border-top: 1px solid #ddd; border-bottom: 1px solid #ddd;
+                    width: 100%; border-spacing: none;
+                    thead{ width: 100%;  height: 100px; border-bottom: 1px solid #ddd; display: block;
+                        tr{ @include flex();
+                            th{ width: 100%; height: 100px; background: #f7f7f7; padding: 30px 10px;
+                                box-sizing: border-box; color: #777; font-weight: 500;}
+                            td{ width: 100%; height: 100px;  padding: 20px 10px; box-sizing: border-box;}
+                        }
+                    }
+                    tbody{ width: 100%; height: 80px; display: block;
+                        tr{ @include flex();
+                            th{ width: 100%; height: 80px; background: #f7f7f7; padding: 20px 10px; 
+                                box-sizing: border-box; color: #777; font-weight: 500;
+                            }
+                            td{ width: 100%; height: 80px; padding: 20px 10px; box-sizing: border-box;}
+                        }
+                    }
+                }
+            }
+        }
+        .facpop3,.facpop4{ @extend %popbg;
+            & > div{ @extend %popdiv;
+                div{ position: relative; text-align: center; margin-bottom: 30px;
+                    h1{ @include font(30px,800)}
+                    button{ @extend %popbtn; }
+                }
+            }
+            table{ border-top: 1px solid #ddd; border-bottom: 1px solid #ddd;
+                width: 100%; border-spacing: none;
+                thead{ width: 100%;  height: 50px; border-bottom: 1px solid #ddd; display: block;
+                    tr{ @include flex();
+                        th{ width: 100%; height: 50px; background: #f7f7f7; padding: 15px 0;
+                            box-sizing: border-box; color: #777; font-weight: 500;
+                            &:nth-of-type(1){border-right: 1px solid #ddd;}
+                        }
+                    }
+                }
+                tbody{ width: 100%; height: 100px; display: block;
+                    tr{ @include flex();
+                        td{ width: 100%; height: 100px; padding: 20px 10px; box-sizing: border-box;
+                            text-align: center;
+                            &:nth-of-type(1){border-right: 1px solid #ddd;}
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .final{ width: 95%; min-width: 1440px; padding: 0 40px; 
+        position: fixed; left: 50%; bottom: 0; transform: translateX(-50%);
+        z-index: 18;
+        ul{ width: 100%; height: 80px; background: white; @include flex(); border-radius: 20px 20px 0 0;
+            box-shadow: 0 3px 20px 0 rgba(0,0,0,0.1);
+            li{ width: 25%; padding: 20px 0 0 50px; position: relative;
+                h2{}
+                p{ font-size: 15px; padding-top: 5px;}
+                &::after{ @include afbe(); width: 2px; height: 50px; background: #ddd; 
+                    position: absolute; right: 0; top: 15px;
+                }
+                &:nth-of-type(3)::after{display: none;}
+            }
+            .sum{ background: $color; height: 100%; padding: 28px 0; border-radius: 0 20px 0 0;
+                h2{ text-align: center; @include font(24px,500); color: white; }
+                &::after{display:none;}
+            }
+        }
+    }
+}

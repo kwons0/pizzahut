@@ -1,0 +1,128 @@
+{
+    "topping":[
+        { "img":"img/tp-1.png", "name":"모짜렐라 치즈", "price":"2,000원" },
+        { "img":"img/tp-2.png", "name":"체다치즈", "price":"1,000원" },
+        { "img":"img/tp-3.png", "name":"소시지", "price":"2,000원" },
+        { "img":"img/tp-4.png", "name":"통새우", "price":"3,000원" },
+        { "img":"img/tp-5.png", "name":"안심", "price":"3,000원" },
+        { "img":"img/tp-6.png", "name":"불고기", "price":"2,500원" },
+        { "img":"img/tp-7.png", "name":"베이컨", "price":"1,500원" },
+        { "img":"img/tp-8.png", "name":"미트(포크&비프)", "price":"1,500원" },
+        { "img":"img/tp-9.png", "name":"페페로니", "price":"1,000원" },
+        { "img":"img/tp-10.png", "name":"블랙올리브", "price":"1,000원" },
+        { "img":"img/tp-11.png", "name":"브로콜리", "price":"1,000원" },
+        { "img":"img/tp-12.png", "name":"양송이", "price":"1,000원" },
+        { "img":"img/tp-13.png", "name":"파프리카", "price":"1,000원" },
+        { "img":"img/tp-14.png", "name":"양파", "price":"1,000원" },
+        { "img":"img/tp-15.png", "name":"청피망", "price":"1,000원" },
+        { "img":"img/tp-16.png", "name":"스위트콘", "price":"1,000원" },
+        { "img":"img/tp-17.png", "name":"파인애플", "price":"1,000원" }
+    ],
+
+    "side":[
+        {
+            "sale":"46%", "img":"img/side-1.png", "name":"서프라이즈콤보세트",
+            "orig":"12,700", "price":"6,900원"
+        },
+        {
+            "sale":"42%", "img":"img/side-2.png", "name":"해피콤보세트",
+            "orig":"13,700", "price":"7,900원"
+        },
+        {
+            "sale":"50%", "img":"img/side-3.png", "name":"대만 연유 치즈볼",
+            "orig":"5,800", "price":"2,900원"
+        },
+        {
+            "sale":"50%", "img":"img/side-4.png", "name":"팝콘치킨(20ea)",
+            "orig":"5,800", "price":"2,900원"
+        },
+        {
+            "sale":"", "img":"img/side-5.png", "name":"소이갈릭 윙<br>(8조각)",
+            "orig":"", "price":"7,900원"
+        },
+        {
+            "sale":"", "img":"img/side-5.png", "name":"소이갈릭 윙<br>(4조각)",
+            "orig":"", "price":"4,200원"
+        },
+        {
+            "sale":"", "img":"img/side-6.png", "name":"하와이안 갈릭치킨<br>(8조각)",
+            "orig":"", "price":"9,900원"
+        },
+        {
+            "sale":"", "img":"img/side-6.png", "name":"하와이안 갈릭치킨<br>(4조각)",
+            "orig":"", "price":"5,800원"
+        },
+        {
+            "sale":"", "img":"img/side-7.png", "name":"순살 허브치킨<br>(8조각)",
+            "orig":"", "price":"9,900원"
+        },
+        {
+            "sale":"", "img":"img/side-7.png", "name":"순살 허브치킨<br>(4조각)",
+            "orig":"", "price":"5,800원"
+        },
+        {
+            "sale":"", "img":"img/side-8.png", "name":"고르곤졸라 치즈볼",
+            "orig":"", "price":"5,800원"
+        },
+        {
+            "sale":"", "img":"img/side-9.png", "name":"투움바 치즈 파스타",
+            "orig":"", "price":"9,800원"
+        },
+        {
+            "sale":"", "img":"img/side-10.png", "name":"크림 치킨 파스타",
+            "orig":"", "price":"9,800원"
+        },
+        {
+            "sale":"", "img":"img/side-11.png", "name":"상하이 쉬림프 파스타",
+            "orig":"", "price":"9,800원"
+        },
+        {
+            "sale":"", "img":"img/side-12.png", "name":"리치 치즈 파스타",
+            "orig":"", "price":"7,900원"
+        },
+        {
+            "sale":"50%", "img":"img/side-13.png", "name":"콘샐러드",
+            "orig":"2,400", "price":"1,200원"
+        },
+        {
+            "sale":"50%", "img":"img/side-14.png", "name":"코울슬로",
+            "orig":"2,400", "price":"1,200원"
+        }
+
+    ],
+
+    "drink":[
+        { "img":"img/sou-1.png", "name":"치즈크러스트<br>디핑소스(30g)", "price":"500원" },
+        { "img":"img/sou-2.png", "name":"그뤼에르치즈<br>디핑소스", "price":"1,000원" },
+        { "img":"img/sou-3.png", "name":"갈릭 스윗 소스<br>(치킨소스)", "price":"500원" },
+        { "img":"img/sou-4.png", "name":"허니머스터드<br>소스", "price":"300원" },
+        { "img":"img/sou-5.png", "name":"핫소스", "price":"100원" },
+        { "img":"img/sou-6.png", "name":"바른생피클(M)", "price":"500원" },
+        { "img":"img/sou-6.png", "name":"바른생피클(L)", "price":"800원" },
+        { "img":"img/dri-1.png", "name":"펩시 1.25L", "price":"2,000원" },
+        { "img":"img/dri-1.png", "name":"펩시 0.5L", "price":"1,400원" },
+        { "img":"img/dri-2.png", "name":"사이다 1.25L", "price":"2,000원" },
+        { "img":"img/dri-2.png", "name":"사이다 0.5L", "price":"1,400원" }
+    ],
+
+    "tpinfo":[
+        { "img":"img/tp-1.png", "name":"모짜렐라 치즈", "detail":"치즈/치즈소스류" },
+        { "img":"img/tp-2.png", "name":"체다치즈", "detail":"치즈/치즈소스류" },
+        { "img":"img/tp-3.png", "name":"소시지", "detail":"미트/해산물류" },
+        { "img":"img/tp-4.png", "name":"통새우", "detail":"미트/해산물류" },
+        { "img":"img/tp-5.png", "name":"안심", "detail":"미트/해산물류" },
+        { "img":"img/tp-6.png", "name":"불고기", "detail":"미트/해산물류" },
+        { "img":"img/tp-7.png", "name":"베이컨", "detail":"미트/해산물류" },
+        { "img":"img/tp-8.png", "name":"미트(포크&비프)", "detail":"미트/해산물류" },
+        { "img":"img/tp-9.png", "name":"페페로니", "detail":"미트/해산물류" },
+        { "img":"img/tp-10.png", "name":"블랙올리브", "detail":"채소류" },
+        { "img":"img/tp-11.png", "name":"브로콜리", "detail":"채소류" },
+        { "img":"img/tp-12.png", "name":"양송이", "detail":"채소류" },
+        { "img":"img/tp-13.png", "name":"파프리카", "detail":"채소류" },
+        { "img":"img/tp-14.png", "name":"양파", "detail":"채소류" },
+        { "img":"img/tp-15.png", "name":"청피망", "detail":"채소류" },
+        { "img":"img/tp-16.png", "name":"스위트콘", "detail":"채소류" },
+        { "img":"img/tp-17.png", "name":"파인애플", "detail":"채소류" }
+    ]
+    
+}
