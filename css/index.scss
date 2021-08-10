@@ -78,12 +78,12 @@ body{ position: relative;
 
             h2{ @include font(54px,300); padding: 5vh 0 2vh 0;
             }
-            div{ width: 450px; position: relative; margin: 0 auto;
+            div{ width: 475px; position: relative; margin: 0 auto;
                 p{
                     img{ width: 100%;}
                 }
                 a{ position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);
-                    width: 250px; height: 250px;
+                    width: 260px; height: 260px;
                     border-radius: 50%; 
                     span{ position: absolute; left: 50%; top: 50%; transform: translate(-50%, 50%); font-size: 20px;
                         &::before{ @include afbe(); width: 40px; height: 5px; background: $color;  border-radius: 3px;
@@ -103,7 +103,7 @@ body{ position: relative;
                 span:nth-of-type(2){ width: 80px; height: 60px; display: block; padding: 20px;box-sizing: border-box; }
             }
         }
-        .basket{ width: 500px; margin: 0 auto; @include hei(); display: none;
+        .basket{ width: 33%; min-width: 500px; margin: 0 auto; @include hei(); display: none;
             & > div{
                 h2{  padding: 5vh 0 2vh 0;
                     span{ display: block; @include font(54px,300); opacity: 0;
@@ -111,7 +111,7 @@ body{ position: relative;
                         &:nth-of-type(2){ transition: 0.5s .4s;}
                     }
                 }
-                figure{ width: 95%; position: relative; margin: 0 auto;
+                figure{ width: 475px; position: relative; margin: 0 auto;
                     p:nth-of-type(1){
                         img{width: 100%;}
                     }

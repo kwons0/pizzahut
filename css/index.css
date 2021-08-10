@@ -907,7 +907,7 @@ body .contents .order h2 {
 }
 
 body .contents .order div {
-  width: 450px;
+  width: 475px;
   position: relative;
   margin: 0 auto;
 }
@@ -922,8 +922,8 @@ body .contents .order div a {
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  width: 250px;
-  height: 250px;
+  width: 260px;
+  height: 260px;
   border-radius: 50%;
 }
 
@@ -1000,7 +1000,8 @@ body .contents .order > a span:nth-of-type(2) {
 }
 
 body .contents .basket {
-  width: 500px;
+  width: 33%;
+  min-width: 500px;
   margin: 0 auto;
   height: calc(100vh - 101px);
   min-height: 868px;
@@ -1029,7 +1030,7 @@ body .contents .basket > div h2 span:nth-of-type(2) {
 }
 
 body .contents .basket > div figure {
-  width: 95%;
+  width: 475px;
   position: relative;
   margin: 0 auto;
 }

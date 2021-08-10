@@ -92,7 +92,7 @@ function main(){
                 $('.order').hide(); 
                 $('.basket').fadeIn(500);
                 $('.basket h2 span').css({opacity:'1'}); //추천메뉴는~
-                $('.delivery').fadeIn(500);     //포장배달 주문하기
+                $('.delivery').fadeIn(700);     //포장배달 주문하기
     
                 // 장바구니 담기
                 cartNum.style.display = 'block';
