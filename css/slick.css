@@ -21,10 +21,12 @@
     position: relative;
 
     display: block;
-    overflow: hidden;
+    /* overflow: hidden; */
+    overflow-y: hidden;
+    overflow-x: visible;
 
     margin: 0;
-    padding: 0;
+    padding: 0 20px;
 }
 .slick-list:focus
 {
@@ -172,4 +174,5 @@
 .slick-list img{width:100%;  margin: 10px 0;}
 
 .slick-slider::after{ content: ''; display: block; left: 0; top: 0; 
-    width: 100%;  height: 100%; background-color: rgba(0,0,0,0.5);
+    width: 100%;  height: 100%; background-color: rgba(0,0,0,0.5)
+}

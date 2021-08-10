@@ -25,11 +25,11 @@ body{ position: relative;
     }
 
     .contents{ @include flex(); width: 100%; min-width: 1440px; padding-top: 101px; @include hei();
-        .recommend{ min-width: 33%; height: 100%; left: 0; top: 0;
+        .recommend{ min-width: calc(33% - 130px); height: 100%; left: 0; top: 0;
             box-sizing: border-box; @include flex();
 
             .reco{  display: flex; align-items: center; justify-content: flex-start;
-                margin-top: 37vh; min-width: 130px; width: 10%;
+                margin-top: 37vh; min-width: 130px;
                 &::before { @include afbe(); width: 30px; height: 3px; background: $color; }
                 h2{ padding-left: 20px; font-size: 22px; }
             }
@@ -40,15 +40,15 @@ body{ position: relative;
 
                 ul{ padding: 3vh 0 60px 10vh; min-width: 330px;
                     li{ width: 280px; right: 0; top: 0; height: auto;
-                        padding: 30px; margin-bottom: 20px;
-                        box-sizing: border-box; border-radius: 20px; transition: .5s;
-                        &:hover{ @include boxshadow();}
-                        &:hover article{ display: block;}
+                        padding: 30px; margin-bottom: 20px; height: 282px;
+                        box-sizing: border-box; border-radius: 20px; transition: .3s;
+                        &:hover{ @include boxshadow(); height: calc(100% + 60px);}
+                        &:hover article{ opacity: 1;}
                         figure{
                             figcaption{ width: 100%; }
                             h2{ font-size: 24px; margin-top: 10px; }
                         }
-                        article{ display: none;
+                        article{ opacity: 0; transition: .4s;
                             position: relative; margin-top: 10px;
                             div{ 
                                 span:nth-of-type(1){ width: 30px; height: 30px; background: #f8e8e8; color: $color;
@@ -74,16 +74,16 @@ body{ position: relative;
                 }
             }
         }
-        .order{ width: 500px; margin: 0 auto; @include hei();
+        .order{ width: 33%; min-width: 500px; margin: 0 auto; @include hei();
 
             h2{ @include font(54px,300); padding: 5vh 0 2vh 0;
             }
-            div{ width: 95%; position: relative;
+            div{ width: 450px; position: relative; margin: 0 auto;
                 p{
                     img{ width: 100%;}
                 }
                 a{ position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);
-                    width: 260px; height: 260px;
+                    width: 250px; height: 250px;
                     border-radius: 50%; 
                     span{ position: absolute; left: 50%; top: 50%; transform: translate(-50%, 50%); font-size: 20px;
                         &::before{ @include afbe(); width: 40px; height: 5px; background: $color;  border-radius: 3px;
@@ -103,44 +103,51 @@ body{ position: relative;
                 span:nth-of-type(2){ width: 80px; height: 60px; display: block; padding: 20px;box-sizing: border-box; }
             }
         }
-        .basket{ width: 500px; margin: 0 auto; @include hei();
-
-            h2{ @include font(54px,300); padding: 5vh 0 2vh 0;}
-            figure{ width: 95%; position: relative;
-                p:nth-of-type(1){
-                    img{width: 100%;}
+        .basket{ width: 500px; margin: 0 auto; @include hei(); display: none;
+            & > div{
+                h2{  padding: 5vh 0 2vh 0;
+                    span{ display: block; @include font(54px,300); opacity: 0;
+                        &:nth-of-type(1){ transition: 0.5s .3s;}
+                        &:nth-of-type(2){ transition: 0.5s .4s;}
+                    }
                 }
-                .plate{ position: absolute; left: 0; top: 0;
-                    img{ width: 100%;}
-                }
-            }
-            div{ position: relative;
-                
-                a{ display: block; text-align: center; 
-                    @include font(25px,800); padding: 4vh 0 2vh 0;
-                }
-                p{  position: absolute; left: 50%; top: 110%;
-                    animation: zig .7s infinite alternate linear;
-                    span{ display: block; width: 20px; position: absolute; left: 50%; top: -9px;
-                        transform: translateX(-50%);
+                figure{ width: 95%; position: relative; margin: 0 auto;
+                    p:nth-of-type(1){
+                        img{width: 100%;}
+                    }
+                    .plate{ position: absolute; left: 0; top: 0;
                         img{ width: 100%;}
                     }
-                    button{ width: 280px;
-                        background: white; display: block;
-                        padding: 15px 0; border-radius: 40px;
-                        @include font(20px,500);
-                        border: 1px solid $color;  @include boxshadow();
+                }
+                div{ position: relative;
+                    
+                    a{ display: block; text-align: center; 
+                        @include font(25px,800); padding: 4vh 0 2vh 0;
+                    }
+                    p{  position: absolute; left: 50%; top: 110%;
+                        animation: zig .7s infinite alternate linear;
+                        span{ display: block; width: 20px; position: absolute; left: 50%; top: -9px;
+                            transform: translateX(-50%);
+                            img{ width: 100%;}
+                        }
+                        button{ width: 280px;
+                            background: white; display: block;
+                            padding: 15px 0; border-radius: 40px;
+                            @include font(20px,500);
+                            border: 1px solid $color;  @include boxshadow();
+                        }
                     }
                 }
+                @keyframes zig {
+                    0%{ transform: translate(-50%,0);}
+                    100%{ transform: translate(-50%,5px);}
+                }
             }
-            @keyframes zig {
-                0%{ transform: translate(-50%,0);}
-                100%{ transform: translate(-50%,5px);}
-            }
+
         }
         .banner{ min-width: 28%; @include hei;  position: relative;
-            padding: 5vh 0 0 20px; box-sizing: border-box; 
-            .delivery{ width: 320px; border-radius: 20px; @include boxshadow();
+            padding: 5vh 0 0 20px; box-sizing: border-box; overflow: hidden;
+            .delivery{ width: 320px; border-radius: 20px; @include boxshadow(); display: none;
                 margin-bottom: 60px;
                 & > div{ padding: 30px 20px;
                     & > div{ display: block; width: 100%; margin: 0 auto; @include flex(flex-start); text-align: center;
@@ -172,9 +179,10 @@ body{ position: relative;
                     padding: 20px 0; font-size: 24px;
                 }
             }
-            .event{ width: 320px; @include flex(); flex-direction: column; margin-top: 70px;
-                p{
-                    img{ width: 100%; border-radius: 20px;
+            .event{ width: 320px; @include flex(); flex-direction: column; margin-left: -20px;
+                // margin-top: 70px;
+                p{ 
+                    img{ width: 100%; border-radius: 20px; box-shadow: 5px 5px 10px 0 rgba(0,0,0,0.1);
                     }
                 }
             }

@@ -4,6 +4,45 @@ function sub(){
     .then( data => callback(data)  );
 
     function callback(data){
+
+        // 헤더 버거메뉴
+        const menuBtn = document.querySelector('.my a:nth-of-type(3)'), //버거버튼
+        subMenu = document.querySelector('.submenu > div'), //버거 내용
+        subWhite = document.querySelector('.submenu > p'), //버거 흰배경
+        subBlack = document.querySelector('header'); //버거 검정배경
+
+        menuBtn.addEventListener('click', function(){
+            if(menuBtn.classList.contains('active')){
+                menuBtn.classList.remove('active');
+                subMenu.classList.remove('active');
+                subWhite.classList.remove('active');
+                subBlack.classList.remove('black');
+
+            }else{
+                menuBtn.classList.add('active');
+                subMenu.classList.add('active');
+                subWhite.classList.add('active');
+                subBlack.classList.add('black');
+            }
+            
+        });
+
+
+        //헤더 미니메뉴
+        $('.menu ul:nth-of-type(1) li').on({
+            mouseenter:function(){
+                $(this).find('div').stop().slideDown(550);
+                if( $(this).children().length == 2){
+                    $('.backwhite').addClass('white');
+                }
+            },
+            mouseleave:function(){
+                $(this).find('div').stop().slideUp(150);
+                $('.backwhite').removeClass('white');
+            }
+        })
+
+        
         let tpList='', sdList='', drList='', infoList='';
 
         const topping = document.querySelector('.topping ul');

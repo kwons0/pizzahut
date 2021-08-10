@@ -224,8 +224,8 @@ body header .head .utility .adress .minipop {
   border-radius: 30px;
   -webkit-transform: translateY(10px);
           transform: translateY(10px);
-  -webkit-box-shadow: 0 6px 15px 0 rgba(0, 0, 0, 0.1);
-          box-shadow: 0 6px 15px 0 rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 6px 15px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 6px 15px 0 rgba(0, 0, 0, 0.2);
 }
 
 body header .head .utility .adress .minipop p:nth-of-type(1) {
@@ -238,6 +238,7 @@ body header .head .utility .adress .minipop p:nth-of-type(2) span {
   height: 2px;
   background: white;
   display: block;
+  cursor: pointer;
 }
 
 body header .head .utility .adress .minipop p:nth-of-type(2) span:nth-of-type(1), body header .head .utility .adress .minipop p:nth-of-type(2) .my a:nth-of-type(3) span:nth-of-type(2), body header .head .utility .my a:nth-of-type(3) .adress .minipop p:nth-of-type(2) span:nth-of-type(2) {
@@ -269,6 +270,25 @@ body header .head .utility .my a {
 
 body header .head .utility .my a img {
   width: 100%;
+}
+
+body header .head .utility .my .cart {
+  position: relative;
+}
+
+body header .head .utility .my .cart button {
+  background: #da1a32;
+  border: none;
+  width: 20px;
+  height: 20px;
+  color: white;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  position: absolute;
+  right: -10px;
+  top: -5px;
+  display: none;
 }
 
 body header .head .utility .my a:nth-of-type(3) {
@@ -703,7 +723,7 @@ body .contents {
 }
 
 body .contents .recommend {
-  min-width: 33%;
+  min-width: calc(33% - 130px);
   height: 100%;
   left: 0;
   top: 0;
@@ -732,7 +752,6 @@ body .contents .recommend .reco {
           justify-content: flex-start;
   margin-top: 37vh;
   min-width: 130px;
-  width: 10%;
 }
 
 body .contents .recommend .reco::before {
@@ -773,20 +792,22 @@ body .contents .recommend .pizza ul li {
   height: auto;
   padding: 30px;
   margin-bottom: 20px;
+  height: 282px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   border-radius: 20px;
-  -webkit-transition: .5s;
-  transition: .5s;
+  -webkit-transition: .3s;
+  transition: .3s;
 }
 
 body .contents .recommend .pizza ul li:hover {
   -webkit-box-shadow: 0 6px 15px 0 rgba(0, 0, 0, 0.1);
           box-shadow: 0 6px 15px 0 rgba(0, 0, 0, 0.1);
+  height: calc(100% + 60px);
 }
 
 body .contents .recommend .pizza ul li:hover article {
-  display: block;
+  opacity: 1;
 }
 
 body .contents .recommend .pizza ul li figure figcaption {
@@ -799,7 +820,9 @@ body .contents .recommend .pizza ul li figure h2 {
 }
 
 body .contents .recommend .pizza ul li article {
-  display: none;
+  opacity: 0;
+  -webkit-transition: .4s;
+  transition: .4s;
   position: relative;
   margin-top: 10px;
 }
@@ -870,7 +893,8 @@ body .contents .recommend .pizza ul li article button::after {
 }
 
 body .contents .order {
-  width: 500px;
+  width: 33%;
+  min-width: 500px;
   margin: 0 auto;
   height: calc(100vh - 101px);
   min-height: 868px;
@@ -883,8 +907,9 @@ body .contents .order h2 {
 }
 
 body .contents .order div {
-  width: 95%;
+  width: 450px;
   position: relative;
+  margin: 0 auto;
 }
 
 body .contents .order div p img {
@@ -897,8 +922,8 @@ body .contents .order div a {
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  width: 260px;
-  height: 260px;
+  width: 250px;
+  height: 250px;
   border-radius: 50%;
 }
 
@@ -979,38 +1004,55 @@ body .contents .basket {
   margin: 0 auto;
   height: calc(100vh - 101px);
   min-height: 868px;
+  display: none;
 }
 
-body .contents .basket h2 {
-  font-size: 54px;
-  font-weight: 300;
+body .contents .basket > div h2 {
   padding: 5vh 0 2vh 0;
 }
 
-body .contents .basket figure {
-  width: 95%;
-  position: relative;
+body .contents .basket > div h2 span {
+  display: block;
+  font-size: 54px;
+  font-weight: 300;
+  opacity: 0;
 }
 
-body .contents .basket figure p:nth-of-type(1) img {
+body .contents .basket > div h2 span:nth-of-type(1), body .contents .basket > div h2 header .head .utility .my a:nth-of-type(3) span:nth-of-type(2), body header .head .utility .my a:nth-of-type(3) .contents .basket > div h2 span:nth-of-type(2) {
+  -webkit-transition: 0.5s .3s;
+  transition: 0.5s .3s;
+}
+
+body .contents .basket > div h2 span:nth-of-type(2) {
+  -webkit-transition: 0.5s .4s;
+  transition: 0.5s .4s;
+}
+
+body .contents .basket > div figure {
+  width: 95%;
+  position: relative;
+  margin: 0 auto;
+}
+
+body .contents .basket > div figure p:nth-of-type(1) img {
   width: 100%;
 }
 
-body .contents .basket figure .plate {
+body .contents .basket > div figure .plate {
   position: absolute;
   left: 0;
   top: 0;
 }
 
-body .contents .basket figure .plate img {
+body .contents .basket > div figure .plate img {
   width: 100%;
 }
 
-body .contents .basket div {
+body .contents .basket > div div {
   position: relative;
 }
 
-body .contents .basket div a {
+body .contents .basket > div div a {
   display: block;
   text-align: center;
   font-size: 25px;
@@ -1018,7 +1060,7 @@ body .contents .basket div a {
   padding: 4vh 0 2vh 0;
 }
 
-body .contents .basket div p {
+body .contents .basket > div div p {
   position: absolute;
   left: 50%;
   top: 110%;
@@ -1026,7 +1068,7 @@ body .contents .basket div p {
           animation: zig .7s infinite alternate linear;
 }
 
-body .contents .basket div p span {
+body .contents .basket > div div p span {
   display: block;
   width: 20px;
   position: absolute;
@@ -1036,11 +1078,11 @@ body .contents .basket div p span {
           transform: translateX(-50%);
 }
 
-body .contents .basket div p span img {
+body .contents .basket > div div p span img {
   width: 100%;
 }
 
-body .contents .basket div p button {
+body .contents .basket > div div p button {
   width: 280px;
   background: white;
   display: block;
@@ -1083,6 +1125,7 @@ body .contents .banner {
   padding: 5vh 0 0 20px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  overflow: hidden;
 }
 
 body .contents .banner .delivery {
@@ -1090,6 +1133,7 @@ body .contents .banner .delivery {
   border-radius: 20px;
   -webkit-box-shadow: 0 6px 15px 0 rgba(0, 0, 0, 0.1);
           box-shadow: 0 6px 15px 0 rgba(0, 0, 0, 0.1);
+  display: none;
   margin-bottom: 60px;
 }
 
@@ -1205,11 +1249,13 @@ body .contents .banner .event {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin-top: 70px;
+  margin-left: -20px;
 }
 
 body .contents .banner .event p img {
   width: 100%;
   border-radius: 20px;
+  -webkit-box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.1);
 }
 /*# sourceMappingURL=index.css.map */

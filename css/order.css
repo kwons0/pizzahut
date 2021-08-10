@@ -224,8 +224,8 @@ body header .head .utility .adress .minipop {
   border-radius: 30px;
   -webkit-transform: translateY(10px);
           transform: translateY(10px);
-  -webkit-box-shadow: 0 6px 15px 0 rgba(0, 0, 0, 0.1);
-          box-shadow: 0 6px 15px 0 rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 6px 15px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 6px 15px 0 rgba(0, 0, 0, 0.2);
 }
 
 body header .head .utility .adress .minipop p:nth-of-type(1) {
@@ -238,6 +238,7 @@ body header .head .utility .adress .minipop p:nth-of-type(2) span {
   height: 2px;
   background: white;
   display: block;
+  cursor: pointer;
 }
 
 body header .head .utility .adress .minipop p:nth-of-type(2) span:nth-of-type(1), body header .head .utility .adress .minipop p:nth-of-type(2) .my a:nth-of-type(3) span:nth-of-type(2), body header .head .utility .my a:nth-of-type(3) .adress .minipop p:nth-of-type(2) span:nth-of-type(2) {
@@ -269,6 +270,25 @@ body header .head .utility .my a {
 
 body header .head .utility .my a img {
   width: 100%;
+}
+
+body header .head .utility .my .cart {
+  position: relative;
+}
+
+body header .head .utility .my .cart button {
+  background: #da1a32;
+  border: none;
+  width: 20px;
+  height: 20px;
+  color: white;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  position: absolute;
+  right: -10px;
+  top: -5px;
+  display: none;
 }
 
 body header .head .utility .my a:nth-of-type(3) {
