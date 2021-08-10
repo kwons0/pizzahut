@@ -1,4 +1,4 @@
-function half(){
+function sub(){
     fetch('json/data_order.json')
     .then( res => res.json() )
     .then( data => callback(data)  );
@@ -71,4 +71,4 @@ function half(){
         infoPop.innerHTML = infoList;
     }
 };
-window.onload = half;
+window.onload = sub;
