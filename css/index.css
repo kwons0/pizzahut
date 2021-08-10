@@ -61,7 +61,6 @@ body header {
 body header .head {
   width: 88%;
   margin: 0 auto;
-  vertical-align: baseline;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -83,6 +82,8 @@ body header .head > div {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
+  background: white;
+  z-index: 50;
 }
 
 body header .head > div h1 {
@@ -289,10 +290,12 @@ body header .head .utility .my a img {
 body header .head .utility .my a:nth-of-type(3) {
   width: 25px;
   display: inline-block;
+  -webkit-transition: .5s;
+  transition: .5s;
   padding: 0 5px;
 }
 
-body header .head .utility .my a:nth-of-type(3) span:nth-of-type(1), body header .head .utility .my a:nth-of-type(3) span:nth-of-type(2) {
+body header .head .utility .my a:nth-of-type(3) span:nth-of-type(1), body header .head .utility .my a:nth-of-type(3) span:nth-of-type(2), body header .head .utility .my a:nth-of-type(3).active span:nth-of-type(2) {
   display: inline-block;
   width: 25px;
   height: 2.5px;
@@ -306,10 +309,31 @@ body header .head .utility .my a:nth-of-type(3) span:nth-of-type(2) {
           transform: translateY(-14px);
 }
 
+body header .head .utility .my a:nth-of-type(3).active {
+  width: 25px;
+  display: inline-block;
+  padding: 0 5px;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+body header .head .utility .my a:nth-of-type(3).active span:nth-of-type(1), body header .head .utility .my a:nth-of-type(3).active span:nth-of-type(2) {
+  display: inline-block;
+  width: 25px;
+  height: 2.5px;
+  background-color: #444;
+  -webkit-transform: translateY(1px) rotate(45deg);
+          transform: translateY(1px) rotate(45deg);
+}
+
+body header .head .utility .my a:nth-of-type(3).active span:nth-of-type(2) {
+  -webkit-transform: translateY(-20px) rotate(-45deg);
+          transform: translateY(-20px) rotate(-45deg);
+}
+
 body header .submenu {
   width: 100%;
   height: 100%;
-  display: none;
 }
 
 body header .submenu > div {
@@ -326,11 +350,16 @@ body header .submenu > div {
   left: 50%;
   top: 101px;
   width: 60%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  -webkit-transform: translate(-50%, -100%);
+          transform: translate(-50%, -100%);
   padding: 50px 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+}
+
+body header .submenu > div.active {
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
 }
 
 body header .submenu > div section:nth-of-type(1) {
@@ -395,10 +424,13 @@ body header .submenu > p {
   left: 0;
   top: 101px;
   background: white;
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
 }
 
-body header .submenu.active {
-  display: block;
+body header .submenu > p.active {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
 }
 
 body header::after {

@@ -122,13 +122,16 @@
 /* 좌우버튼 */
 
 .slick-arrow{
-    position:absolute;
+    position:absolute; z-index: 20;
     font-size:0; border:0; background:none;
 }
 .slick-prev{ right:60px; top:-60px; width: 30px; height: 20px;
     background: url('../img/ic_arrow2.png') no-repeat;
     transform: rotate(180deg);
 }
+.drselect.responsive.slick-initialized.slick-slider.slick-dotted button:nth-of-type(1){ right:60px; top:-20px;}
+.drselect.responsive.slick-initialized.slick-slider.slick-dotted button:nth-of-type(2){ right:0px; top:-20px;}
+
 .slick-prev::after{
     content:'';
     display:block;

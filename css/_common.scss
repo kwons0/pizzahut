@@ -47,10 +47,9 @@ body{ position: relative;
         border-bottom: 1px solid #ddd; position: relative; position: fixed;
         background: white;
         .head{ 
-            width: 88%; margin: 0 auto; vertical-align: baseline;
-            @include flex();
-            & > div{@include flex(flex-start);
-                h1{
+            width: 88%; margin: 0 auto; @include flex();
+            & > div{@include flex(flex-start);  background: white; z-index: 50;
+                h1{ 
                     width: 181px; margin: 33px 30px 0 0;
                     a{ width: 181px;
                         img{ width: 100%;}
@@ -105,7 +104,7 @@ body{ position: relative;
                     a{ width: 30px;
                         img{width: 100%;}
                     }
-                    a:nth-of-type(3){ width: 25px; display: inline-block;
+                    a:nth-of-type(3){ width: 25px; display: inline-block; transition: .5s;
                         padding: 0 5px;
                         span:nth-of-type(1){ display: inline-block;
                             width: 25px; height: 2.5px; background-color: #444;
@@ -115,16 +114,24 @@ body{ position: relative;
                             transform: translateY(-14px);
                         }
                     }
-                    
+                    a:nth-of-type(3).active{ width: 25px; display: inline-block; padding: 0 5px; transition: .5s;
+                        span:nth-of-type(1){ display: inline-block;
+                            width: 25px; height: 2.5px; background-color: #444;
+                            transform: translateY(1px) rotate(45deg);
+                        }
+                        span:nth-of-type(2){@extend span:nth-of-type(1);
+                            transform: translateY(-20px) rotate(-45deg);
+                        }
+                    }
                 }
                 
             }
         }
-        .submenu{ width: 100%; height: 100%; display: none;
-
+        .submenu{ width: 100%; height: 100%;
             & > div{ @include flex();
-                position: absolute; left: 50%; top: 101px; width: 60%; transform: translateX(-50%);
+                position: absolute; left: 50%; top: 101px; width: 60%; transform: translate(-50%,-100%);
                 padding:50px 0; box-sizing: border-box;
+                &.active{transform: translate(-50%,0);}
 
                 section:nth-of-type(1){ width: 70%;
                     ul{@include flex(); margin: 0 0 30px 0;
@@ -147,8 +154,9 @@ body{ position: relative;
             & > p{ //버거메뉴 배경(흰)
                 width: 100%; height: 530px; z-index: -1;
                 position: absolute; left: 0; top: 101px;  background: white;
+                transform: translateY(-100%);
+                &.active{transform: translateY(0);}
             }
-            &.active{ display: block;}
         }
         &::after{ //서브메뉴 배경(흰)
             @include afbe(); position: absolute;

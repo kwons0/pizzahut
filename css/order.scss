@@ -208,7 +208,7 @@ body{ min-width: 1440px;
                 border: 1px solid #ddd; border-radius: 10px;
             }
         }
-        .facpop1{ @extend %popbg;
+        .facpop1{ @extend %popbg; display: none;
             & > div{ @extend %popdiv;  height: 80%;
                 div{ position: relative; text-align: center; margin-bottom: 30px;
                     h1{ @include font(30px,800)}
