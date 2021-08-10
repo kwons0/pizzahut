@@ -34,31 +34,20 @@ body {
   position: relative;
 }
 
-body::before {
-  content: '';
-  display: block;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: -1;
-  position: absolute;
-  left: 0;
-  top: 0;
-  display: none;
-}
-
 body header {
   z-index: 10;
+  background: white;
   width: 100%;
   min-width: 1440px;
-  height: 100px;
   border-bottom: 1px solid #ddd;
   position: relative;
   position: fixed;
-  background: white;
 }
 
 body header .head {
+  background: white;
+  z-index: 50;
+  height: 100px;
   width: 88%;
   margin: 0 auto;
   display: -webkit-box;
@@ -82,8 +71,6 @@ body header .head > div {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
-  background: white;
-  z-index: 50;
 }
 
 body header .head > div h1 {
@@ -103,7 +90,7 @@ body header .head > div .menu {
   min-width: 700px;
 }
 
-body header .head > div .menu ul:nth-of-type(1) {
+body header .head > div .menu ul {
   min-width: 70%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -117,28 +104,28 @@ body header .head > div .menu ul:nth-of-type(1) {
   height: 100px;
 }
 
-body header .head > div .menu ul:nth-of-type(1) li {
+body header .head > div .menu ul li {
   padding: 40px 30px 0 30px;
   height: 101px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   text-align: center;
+  position: relative;
 }
 
-body header .head > div .menu ul:nth-of-type(1) li a {
+body header .head > div .menu ul li > a {
   font-size: 20px;
   font-weight: 600;
 }
 
-body header .head > div .menu ul:nth-of-type(1) li:hover {
+body header .head > div .menu ul li:hover {
   border-bottom: 2px solid #da1a32;
 }
 
-body header .head > div .menu ul:nth-of-type(2) {
-  width: 100%;
-}
-
-body header .head > div .menu ul:nth-of-type(2) li {
+body header .head > div .menu ul li div {
+  position: absolute;
+  left: 0;
+  top: 101px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -148,30 +135,27 @@ body header .head > div .menu ul:nth-of-type(2) li {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
-  width: 100%;
-  padding: 30px 0;
+  min-width: 700px;
+  padding: 36px 0;
+  text-align: start;
   display: none;
 }
 
-body header .head > div .menu ul:nth-of-type(2) li a {
+body header .head > div .menu ul li div a {
   font-weight: 500;
   padding: 0 32px;
 }
 
-body header .head > div .menu ul:nth-of-type(2) li a:hover {
+body header .head > div .menu ul li div a:hover {
   color: #da1a32;
 }
 
-body header .head > div .menu ul:nth-of-type(2) li.active {
-  display: block;
+body header .head > div .menu ul li:nth-of-type(3) div {
+  margin-left: -180px;
 }
 
-body header .head > div .menu ul:nth-of-type(2) li:nth-of-type(2) a:nth-of-type(1) {
-  padding-left: 100px;
-}
-
-body header .head > div .menu ul:nth-of-type(2) li:nth-of-type(3) a:nth-of-type(1) {
-  padding-left: 285px;
+body header .head > div .menu ul li:nth-of-type(5) div {
+  margin-left: -80px;
 }
 
 body header .head .utility {
@@ -290,13 +274,13 @@ body header .head .utility .my a img {
 body header .head .utility .my a:nth-of-type(3) {
   width: 25px;
   display: inline-block;
-  -webkit-transition: .5s;
-  transition: .5s;
   padding: 0 5px;
 }
 
 body header .head .utility .my a:nth-of-type(3) span:nth-of-type(1), body header .head .utility .my a:nth-of-type(3) span:nth-of-type(2), body header .head .utility .my a:nth-of-type(3).active span:nth-of-type(2) {
   display: inline-block;
+  -webkit-transition: .5s;
+  transition: .5s;
   width: 25px;
   height: 2.5px;
   background-color: #444;
@@ -346,15 +330,18 @@ body header .submenu > div {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-transition: .5s;
+  transition: .5s;
+  z-index: -1;
   position: absolute;
   left: 50%;
   top: 101px;
   width: 60%;
-  -webkit-transform: translate(-50%, -100%);
-          transform: translate(-50%, -100%);
   padding: 50px 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  -webkit-transform: translate(-50%, -100%);
+          transform: translate(-50%, -100%);
 }
 
 body header .submenu > div.active {
@@ -419,13 +406,15 @@ body header .submenu > div section:nth-of-type(2) p img {
 body header .submenu > p {
   width: 100%;
   height: 530px;
-  z-index: -1;
+  z-index: -2;
+  -webkit-transition: .5s;
+  transition: .5s;
   position: absolute;
   left: 0;
   top: 101px;
   background: white;
-  -webkit-transform: translateY(-100%);
-          transform: translateY(-100%);
+  -webkit-transform: translateY(calc(-100% - 1px));
+          transform: translateY(calc(-100% - 1px));
 }
 
 body header .submenu > p.active {
@@ -433,21 +422,44 @@ body header .submenu > p.active {
           transform: translateY(0);
 }
 
-body header::after {
+body header::before {
   content: '';
   display: block;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -3;
+  -webkit-transform: translateY(101px);
+          transform: translateY(101px);
+  display: none;
+}
+
+body header.black::before {
+  display: block;
+}
+
+body header .backwhite {
   position: absolute;
   left: 0;
   top: 0;
   width: 100%;
-  height: 100%;
+  height: 90px;
   background-color: white;
-  z-index: -1;
+  z-index: -4;
   -webkit-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
           box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
-  -webkit-transform: translateY(80%);
-          transform: translateY(80%);
-  display: none;
+  -webkit-transform: translateY(-101px);
+          transform: translateY(-101px);
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+body header .backwhite.white {
+  -webkit-transform: translateY(101px);
+          transform: translateY(101px);
 }
 
 body footer {
@@ -718,7 +730,7 @@ body .contents .recommend .reco {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
-  margin-top: 40vh;
+  margin-top: 37vh;
   min-width: 130px;
   width: 10%;
 }
@@ -885,8 +897,8 @@ body .contents .order div a {
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  width: 220px;
-  height: 220px;
+  width: 260px;
+  height: 260px;
   border-radius: 50%;
 }
 
@@ -1193,6 +1205,7 @@ body .contents .banner .event {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  margin-top: 70px;
 }
 
 body .contents .banner .event p img {

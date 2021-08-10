@@ -36,19 +36,14 @@ $color:#da1a32;
 
 
 body{ position: relative;
-    &::before{ //버거메뉴 배경(검)
-        @include afbe(); width: 100%; height: 100%; background: rgba(0,0,0,0.5);
-        z-index: -1; position: absolute; left: 0; top: 0;
-        display: none;
-    }
 
-    header{ z-index: 10;
-        width: 100%; min-width: 1440px; height: 100px; 
+    header{ z-index: 10; background: white;
+        width: 100%; min-width: 1440px;
         border-bottom: 1px solid #ddd; position: relative; position: fixed;
-        background: white;
-        .head{ 
-            width: 88%; margin: 0 auto; @include flex();
-            & > div{@include flex(flex-start);  background: white; z-index: 50;
+        
+        .head{  background: white; z-index: 50;
+            height: 100px; width: 88%; margin: 0 auto; @include flex();
+            & > div{@include flex(flex-start);
                 h1{ 
                     width: 181px; margin: 33px 30px 0 0;
                     a{ width: 181px;
@@ -56,24 +51,24 @@ body{ position: relative;
                     }
                 }
                 .menu{  min-width: 700px;
-                    ul:nth-of-type(1){ min-width: 70%; @include flex(); height: 100px;
+                    ul{ min-width: 70%; @include flex(); height: 100px;
                         li{ padding: 40px 30px 0 30px; height: 101px;
                             box-sizing: border-box; text-align: center;
+                            position: relative;
 
-                            a{ @include font(20px,600);}
-
+                            & > a{ @include font(20px,600);}
                             &:hover{border-bottom: 2px solid $color;}
-                        }
-                    }
-                    ul:nth-of-type(2){ width: 100%;  
-                        li{ @include flex(flex-start); width: 100%; padding: 30px 0; display: none;
-                            a{ font-weight: 500; padding: 0 32px;
-                                &:hover{ color: $color;}
+
+                            div{ position: absolute; left: 0; top: 101px;
+                                @include flex(flex-start); min-width: 700px ; padding: 36px 0; 
+                                text-align: start; display: none;
+                                a{ font-weight: 500; padding: 0 32px;
+                                    &:hover{ color: $color;}
+                                }
                             }
-                            &.active{ display: block; }
+                            &:nth-of-type(3) div{ margin-left:-180px;}
+                            &:nth-of-type(5) div{ margin-left:-80px;}
                         }
-                        li:nth-of-type(2){ a:nth-of-type(1){ padding-left: 100px;} }
-                        li:nth-of-type(3){ a:nth-of-type(1){ padding-left: 285px;} }
                     }
                 }
             }    
@@ -104,9 +99,9 @@ body{ position: relative;
                     a{ width: 30px;
                         img{width: 100%;}
                     }
-                    a:nth-of-type(3){ width: 25px; display: inline-block; transition: .5s;
+                    a:nth-of-type(3){ width: 25px; display: inline-block;
                         padding: 0 5px;
-                        span:nth-of-type(1){ display: inline-block;
+                        span:nth-of-type(1){ display: inline-block;  transition: .5s;
                             width: 25px; height: 2.5px; background-color: #444;
                             transform: translateY(-4px);
                         }
@@ -128,9 +123,10 @@ body{ position: relative;
             }
         }
         .submenu{ width: 100%; height: 100%;
-            & > div{ @include flex();
-                position: absolute; left: 50%; top: 101px; width: 60%; transform: translate(-50%,-100%);
-                padding:50px 0; box-sizing: border-box;
+            & > div{ //버거메뉴 내용
+                @include flex(); transition: .5s; z-index: -1;
+                position: absolute; left: 50%; top: 101px; width: 60%;
+                padding:50px 0; box-sizing: border-box; transform: translate(-50%,-100%);
                 &.active{transform: translate(-50%,0);}
 
                 section:nth-of-type(1){ width: 70%;
@@ -152,20 +148,33 @@ body{ position: relative;
                 }
             }
             & > p{ //버거메뉴 배경(흰)
-                width: 100%; height: 530px; z-index: -1;
+                width: 100%; height: 530px; z-index: -2; transition: .5s;
                 position: absolute; left: 0; top: 101px;  background: white;
-                transform: translateY(-100%);
+                transform: translateY( calc(-100% - 1px));
                 &.active{transform: translateY(0);}
             }
         }
-        &::after{ //서브메뉴 배경(흰)
-            @include afbe(); position: absolute;
-            left: 0; top: 0; width: 100%; height: 100%;
-            background-color:white; z-index: -1; box-shadow: 0 5px 5px rgba(0,0,0,0.1);
-            transform: translateY(80%);
-            display: none;
+        &::before{ //버거메뉴 배경(검)
+            @include afbe(); width: 100%; height: 100vh; background: rgba(0,0,0,0.5);
+            position: absolute; left: 0; top: 0; z-index: -3;
+            transform: translateY(101px); display: none;
+        }
+        &.black::before{ display: block;}
+
+        .backwhite{ //서브메뉴 배경(흰)
+            position: absolute;
+            left: 0; top: 0; width: 100%; height: 90px;
+            background-color:white; z-index: -4; box-shadow: 0 5px 5px rgba(0,0,0,0.1);
+            transform: translateY(-101px); transition: .5s; 
+        }
+        .backwhite.white{
+            transform: translateY( 101px);
         }
     }
+
+
+
+
 
     footer{ width: 100%; height: 200px; padding: 40px 60px 0 60px;
         background: #444;  box-sizing: border-box;
