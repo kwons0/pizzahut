@@ -486,6 +486,7 @@ body footer {
   width: 100%;
   height: 200px;
   padding: 40px 60px 0 60px;
+  z-index: 19;
   background: #444;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -606,11 +607,11 @@ body footer > div .sns figure {
           justify-content: flex-end;
 }
 
-body footer > div .sns figure p {
+body footer > div .sns figure a {
   margin: 0 10px;
 }
 
-body footer > div .sns figure p img {
+body footer > div .sns figure a img {
   width: 100%;
 }
 
@@ -646,12 +647,14 @@ body {
 
 body .popup {
   width: 100%;
+  min-width: 1440px;
   height: 100vh;
+  display: none;
   position: fixed;
   left: 0;
   top: 0;
   z-index: 20;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.8);
 }
 
 body .popup p {
@@ -673,8 +676,8 @@ body .popup div {
   position: absolute;
   left: 50%;
   top: 45%;
-  -webkit-transform: translate(-50%, calc(-50% + 265px));
-          transform: translate(-50%, calc(-50% + 265px));
+  -webkit-transform: translate(-50%, calc(-50% + 235px));
+          transform: translate(-50%, calc(-50% + 235px));
   width: 60%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -789,21 +792,19 @@ body .contents .recommend .pizza ul li {
   width: 280px;
   right: 0;
   top: 0;
-  height: auto;
   padding: 30px;
   margin-bottom: 20px;
-  height: 282px;
+  height: 252px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   border-radius: 20px;
-  -webkit-transition: .3s;
-  transition: .3s;
+  -webkit-transition: all .3s;
+  transition: all .3s;
 }
 
 body .contents .recommend .pizza ul li:hover {
   -webkit-box-shadow: 0 6px 15px 0 rgba(0, 0, 0, 0.1);
           box-shadow: 0 6px 15px 0 rgba(0, 0, 0, 0.1);
-  height: calc(100% + 60px);
 }
 
 body .contents .recommend .pizza ul li:hover article {
@@ -1006,47 +1007,59 @@ body .contents .basket {
   height: calc(100vh - 101px);
   min-height: 868px;
   display: none;
+  overflow-y: hidden;
 }
 
-body .contents .basket > div h2 {
+body .contents .basket > div article {
+  -webkit-transition: .5s .2s;
+  transition: .5s .2s;
+}
+
+body .contents .basket > div article h2 {
   padding: 5vh 0 2vh 0;
+  -webkit-transition: .5s .2s;
+  transition: .5s .2s;
 }
 
-body .contents .basket > div h2 span {
+body .contents .basket > div article h2 span {
   display: block;
   font-size: 54px;
   font-weight: 300;
   opacity: 0;
 }
 
-body .contents .basket > div h2 span:nth-of-type(1), body .contents .basket > div h2 header .head .utility .my a:nth-of-type(3) span:nth-of-type(2), body header .head .utility .my a:nth-of-type(3) .contents .basket > div h2 span:nth-of-type(2) {
+body .contents .basket > div article h2 span:nth-of-type(1), body .contents .basket > div article h2 header .head .utility .my a:nth-of-type(3) span:nth-of-type(2), body header .head .utility .my a:nth-of-type(3) .contents .basket > div article h2 span:nth-of-type(2) {
   -webkit-transition: 0.5s .3s;
   transition: 0.5s .3s;
 }
 
-body .contents .basket > div h2 span:nth-of-type(2) {
-  -webkit-transition: 0.5s .4s;
-  transition: 0.5s .4s;
+body .contents .basket > div article h2 span:nth-of-type(2) {
+  -webkit-transition: 0.5s .5s;
+  transition: 0.5s .5s;
 }
 
-body .contents .basket > div figure {
+body .contents .basket > div article figure {
   width: 475px;
   position: relative;
   margin: 0 auto;
 }
 
-body .contents .basket > div figure p:nth-of-type(1) img {
+body .contents .basket > div article figure p:nth-of-type(1) img {
   width: 100%;
 }
 
-body .contents .basket > div figure .plate {
+body .contents .basket > div article figure .plate {
   position: absolute;
   left: 0;
   top: 0;
+  -webkit-transition: .5s .2s;
+  transition: .5s .2s;
 }
 
-body .contents .basket > div figure .plate img {
+body .contents .basket > div article figure .plate img {
   width: 100%;
+  -webkit-transition: .5s .2s;
+  transition: .5s .2s;
 }
 
 body .contents .basket > div div {
@@ -1065,6 +1078,8 @@ body .contents .basket > div div p {
   position: absolute;
   left: 50%;
   top: 110%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
   -webkit-animation: zig .7s infinite alternate linear;
           animation: zig .7s infinite alternate linear;
 }
@@ -1085,6 +1100,7 @@ body .contents .basket > div div p span img {
 
 body .contents .basket > div div p button {
   width: 280px;
+  margin: 0 auto;
   background: white;
   display: block;
   padding: 15px 0;
@@ -1119,7 +1135,8 @@ body .contents .basket > div div p button {
 }
 
 body .contents .banner {
-  min-width: 28%;
+  min-width: 25%;
+  width: 33%;
   height: calc(100vh - 101px);
   min-height: 868px;
   position: relative;
@@ -1135,7 +1152,7 @@ body .contents .banner .delivery {
   -webkit-box-shadow: 0 6px 15px 0 rgba(0, 0, 0, 0.1);
           box-shadow: 0 6px 15px 0 rgba(0, 0, 0, 0.1);
   display: none;
-  margin-bottom: 60px;
+  margin-bottom: 30px;
 }
 
 body .contents .banner .delivery > div {
@@ -1177,52 +1194,78 @@ body .contents .banner .delivery > div > div button:nth-of-type(2) {
   color: #777;
 }
 
-body .contents .banner .delivery > div article {
+body .contents .banner .delivery > div .deliList {
   margin-top: 22px;
 }
 
-body .contents .banner .delivery > div article h2 {
+body .contents .banner .delivery > div .deliList h2 {
   padding: 15px 0 10px 0;
   font-size: 20px;
 }
 
-body .contents .banner .delivery > div article p {
+body .contents .banner .delivery > div .deliList ul {
+  height: 120px;
+  -webkit-transition: .5s;
+  transition: .5s;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+body .contents .banner .delivery > div .deliList ul::-webkit-scrollbar {
+  display: none;
+}
+
+body .contents .banner .delivery > div .deliList ul li p {
   padding-bottom: 10px;
 }
 
-body .contents .banner .delivery > div article p b {
+body .contents .banner .delivery > div .deliList ul li p b {
   color: #da1a32;
 }
 
-body .contents .banner .delivery > div article small span:nth-of-type(1), body .contents .banner .delivery > div article small header .head .utility .my a:nth-of-type(3) span:nth-of-type(2), body header .head .utility .my a:nth-of-type(3) .contents .banner .delivery > div article small span:nth-of-type(2) {
+body .contents .banner .delivery > div .deliList ul li small span:nth-of-type(1), body .contents .banner .delivery > div .deliList ul li small header .head .utility .my a:nth-of-type(3) span:nth-of-type(2), body header .head .utility .my a:nth-of-type(3) .contents .banner .delivery > div .deliList ul li small span:nth-of-type(2) {
   font-size: 14px;
   color: #777;
   padding-right: 5px;
 }
 
-body .contents .banner .delivery > div article small span:nth-of-type(2) {
+body .contents .banner .delivery > div .deliList ul li small span:nth-of-type(2) {
   font-size: 14px;
 }
 
-body .contents .banner .delivery > div article div {
+body .contents .banner .delivery > div .deliList ul li div {
   padding-top: 22px;
   text-align: right;
 }
 
-body .contents .banner .delivery > div article div span:nth-of-type(1), body .contents .banner .delivery > div article div header .head .utility .my a:nth-of-type(3) span:nth-of-type(2), body header .head .utility .my a:nth-of-type(3) .contents .banner .delivery > div article div span:nth-of-type(2) {
+body .contents .banner .delivery > div .deliList ul li div span:nth-of-type(1), body .contents .banner .delivery > div .deliList ul li div header .head .utility .my a:nth-of-type(3) span:nth-of-type(2), body header .head .utility .my a:nth-of-type(3) .contents .banner .delivery > div .deliList ul li div span:nth-of-type(2) {
   color: #aaa;
   font-size: 16px;
   text-decoration: line-through;
 }
 
-body .contents .banner .delivery > div article div span:nth-of-type(2) {
+body .contents .banner .delivery > div .deliList ul li div span:nth-of-type(2) {
   color: #da1a32;
   font-size: 16px;
 }
 
-body .contents .banner .delivery > div article div span:nth-of-type(3) {
+body .contents .banner .delivery > div .deliList ul li div span:nth-of-type(3) {
   font-size: 20px;
   font-weight: 700;
+}
+
+body .contents .banner .delivery > div .deliList ul li::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: #f7f7f7;
+  margin: 20px 0;
+}
+
+body .contents .banner .delivery > div .deliList ul li:nth-of-type(1)::before {
+  display: none;
 }
 
 body .contents .banner .delivery > a {

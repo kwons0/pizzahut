@@ -486,6 +486,7 @@ body footer {
   width: 100%;
   height: 200px;
   padding: 40px 60px 0 60px;
+  z-index: 19;
   background: #444;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -606,11 +607,11 @@ body footer > div .sns figure {
           justify-content: flex-end;
 }
 
-body footer > div .sns figure p {
+body footer > div .sns figure a {
   margin: 0 10px;
 }
 
-body footer > div .sns figure p img {
+body footer > div .sns figure a img {
   width: 100%;
 }
 
@@ -840,6 +841,11 @@ body .detail {
 
 body .detail .half {
   width: 600px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 141px;
+  left: 0;
+  padding: 0 10px 40px 0;
 }
 
 body .detail .half h2 {
@@ -857,12 +863,12 @@ body .detail .half span {
 
 body .detail .half div {
   position: relative;
-  width: 500px;
+  width: 470px;
   margin: 15px;
 }
 
 body .detail .half div p:nth-of-type(1) {
-  width: 470px;
+  width: 440px;
   -webkit-transform: translate(15px, 15px);
           transform: translate(15px, 15px);
 }
@@ -886,11 +892,30 @@ body .detail .select {
   padding-top: 53px;
 }
 
-body .detail .select .size h2 {
-  margin-bottom: 35px;
+body .detail .select .size {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
-body .detail .select .size article {
+body .detail .select .size h2 {
+  margin-bottom: 35px;
+  width: 100%;
+}
+
+body .detail .select .size figure {
+  cursor: pointer;
+}
+
+body .detail .select .size figure article {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -904,48 +929,56 @@ body .detail .select .size article {
   height: 100px;
   border-radius: 15px;
   overflow: hidden;
-  -webkit-box-shadow: 0 6px 15px 0 rgba(0, 0, 0, 0.2);
-          box-shadow: 0 6px 15px 0 rgba(0, 0, 0, 0.2);
+  -webkit-transition: .3s;
+  transition: .3s;
 }
 
-body .detail .select .size article h3 {
+body .detail .select .size figure article h3 {
   width: 120px;
   height: 100%;
   color: white;
-  background: #B40E29;
+  background: #ddd;
+  -webkit-transition: .3s;
+  transition: .3s;
   font-size: 40px;
   font-weight: 800;
   text-align: center;
   line-height: 110px;
 }
 
-body .detail .select .size article a {
+body .detail .select .size figure article a {
   width: 225px;
   height: 100%;
-  background: #da1a32;
+  background: #f7f7f7;
   text-align: end;
+  -webkit-transition: .3s;
+  transition: .3s;
   padding: 20px 40px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   line-height: 1.5;
 }
 
-body .detail .select .size article a span:nth-of-type(1), body .detail .select .size article header .head .utility .my a:nth-of-type(3) span:nth-of-type(2), body header .head .utility .my .detail .select .size article a:nth-of-type(3) span:nth-of-type(2) {
-  color: white;
+body .detail .select .size figure article a span:nth-of-type(1), body .detail .select .size figure article header .head .utility .my a:nth-of-type(3) span:nth-of-type(2), body header .head .utility .my .detail .select .size figure article a:nth-of-type(3) span:nth-of-type(2) {
   display: block;
   font-size: 16px;
   font-weight: 400;
   text-decoration: line-through;
+  color: #777;
+  -webkit-transition: .3s;
+  transition: .3s;
 }
 
-body .detail .select .size article a span:nth-of-type(2) {
-  color: white;
+body .detail .select .size figure article a span:nth-of-type(2) {
   display: block;
   font-size: 30px;
   font-weight: 400;
+  color: #777;
+  -webkit-transition: .3s;
+  transition: .3s;
 }
 
-body .detail .select .size > div {
+body .detail .select .size figure div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -956,9 +989,10 @@ body .detail .select .size > div {
       -ms-flex-pack: start;
           justify-content: flex-start;
   margin-top: 15px;
+  opacity: .3;
 }
 
-body .detail .select .size > div span:nth-of-type(1), body .detail .select .size > div header .head .utility .my a:nth-of-type(3) span:nth-of-type(2), body header .head .utility .my a:nth-of-type(3) .detail .select .size > div span:nth-of-type(2) {
+body .detail .select .size figure div span:nth-of-type(1), body .detail .select .size figure div header .head .utility .my a:nth-of-type(3) span:nth-of-type(2), body header .head .utility .my a:nth-of-type(3) .detail .select .size figure div span:nth-of-type(2) {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -971,7 +1005,7 @@ body .detail .select .size > div span:nth-of-type(1), body .detail .select .size
   font-weight: 600;
 }
 
-body .detail .select .size > div span:nth-of-type(1)::after, body .detail .select .size > div header .head .utility .my a:nth-of-type(3) span:nth-of-type(2)::after, body header .head .utility .my a:nth-of-type(3) .detail .select .size > div span:nth-of-type(2)::after {
+body .detail .select .size figure div span:nth-of-type(1)::after, body .detail .select .size figure div header .head .utility .my a:nth-of-type(3) span:nth-of-type(2)::after, body header .head .utility .my a:nth-of-type(3) .detail .select .size figure div span:nth-of-type(2)::after {
   content: '';
   display: block;
   width: 2px;
@@ -980,9 +1014,35 @@ body .detail .select .size > div span:nth-of-type(1)::after, body .detail .selec
   margin: 1px 10px;
 }
 
-body .detail .select .size > div span:nth-of-type(2) {
+body .detail .select .size figure div span:nth-of-type(2) {
   color: #da1a32;
   font-weight: 600;
+}
+
+body .detail .select .size figure.active article, body .detail .select .size figure:hover article {
+  -webkit-box-shadow: 0 6px 15px 0 rgba(0, 0, 0, 0.3);
+          box-shadow: 0 6px 15px 0 rgba(0, 0, 0, 0.3);
+}
+
+body .detail .select .size figure.active article h3, body .detail .select .size figure:hover article h3 {
+  color: white;
+  background: #B40E29;
+}
+
+body .detail .select .size figure.active article a, body .detail .select .size figure:hover article a {
+  background: #da1a32;
+}
+
+body .detail .select .size figure.active article a span:nth-of-type(1), body .detail .select .size figure:hover article a span:nth-of-type(1), body .detail .select .size figure.active article header .head .utility .my a:nth-of-type(3) span:nth-of-type(2), body header .head .utility .my .detail .select .size figure.active article a:nth-of-type(3) span:nth-of-type(2), body .detail .select .size figure:hover article header .head .utility .my a:nth-of-type(3) span:nth-of-type(2), body header .head .utility .my .detail .select .size figure:hover article a:nth-of-type(3) span:nth-of-type(2) {
+  color: white;
+}
+
+body .detail .select .size figure.active article a span:nth-of-type(2), body .detail .select .size figure:hover article a span:nth-of-type(2) {
+  color: white;
+}
+
+body .detail .select .size figure.active div, body .detail .select .size figure:hover div {
+  opacity: 1;
 }
 
 body .detail .select .edge {
@@ -1417,6 +1477,11 @@ body .nutrition .facpop1 > div ul li article small {
 
 body .nutrition .facpop1 > div > small {
   margin: 0;
+  padding-top: 10px;
+}
+
+body .nutrition .facpop2 {
+  display: none;
 }
 
 body .nutrition .facpop2 > div div {
@@ -1512,6 +1577,10 @@ body .nutrition .facpop2 > div table tbody tr td {
           box-sizing: border-box;
 }
 
+body .nutrition .facpop3, body .nutrition .facpop4 {
+  display: none;
+}
+
 body .nutrition .facpop3 > div div, body .nutrition .facpop4 > div div {
   position: relative;
   text-align: center;
@@ -1598,6 +1667,7 @@ body .nutrition .facpop3 table tbody tr td:nth-of-type(1), body .nutrition .facp
 body .final {
   width: 95%;
   min-width: 1440px;
+  height: 80px;
   padding: 0 40px;
   position: fixed;
   left: 50%;
@@ -1605,6 +1675,14 @@ body .final {
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
   z-index: 18;
+}
+
+body .final.fixedOn {
+  position: absolute;
+  bottom: 200px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
 }
 
 body .final ul {
@@ -1656,6 +1734,8 @@ body .final ul .sum {
   height: 100%;
   padding: 28px 0;
   border-radius: 0 20px 0 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 body .final ul .sum h2 {
