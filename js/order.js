@@ -59,7 +59,10 @@ function sub(){
             sizeBtn = document.querySelectorAll('.size figure'),
             qtMinus = document.querySelector('.quantity button:nth-of-type(1)'),
             qtPlus = document.querySelector('.quantity button:nth-of-type(2)'),
-            qtNum = document.querySelector('.quantity div span');
+            qtNum = document.querySelector('.quantity div span'),
+            sideOrder = document.querySelector('.sideOrder'),
+            drinkOrder = document.querySelector('.drinkOrder'),
+            finalPrice = document.querySelector('.finalPrice');
         let sizeNum = 0, tpList='', sdList='', drList='', infoList='', qtCount = 1;
         
         //사이즈 선택 버튼
@@ -83,18 +86,33 @@ function sub(){
         })
         topping.innerHTML = tpList;
 
-
+        // 토핑 체크박스 이미지 변경
         const tpBtn = document.querySelectorAll('.tplist a');
+        
+
 
         for( let ck=0; ck<tpBtn.length; ck++){
             tpBtn[ck].addEventListener('click',function(){
                 let target = event.target;
-                if( target.getAttribute('src') == 'img/chk_btn2.png'){
-                    target.src = `img/chk_btn1.png`; return;
+
+                if( target.getAttribute('src') == 'img/chk_btn1.png' ){
+                    target.src = `img/chk_btn2.png`;
+                }else{
+                    target.src = `img/chk_btn1.png`;
                 }
-                target.src = `img/chk_btn2.png`
+
+                // console.log( $('.tpselect').children('li').children('a').find('img').attr('src') == 'img/chk_btn2.png')
+                
+                // let btnImg = $('.slick-track').children('li').children('a').find('img');
+                // console.log( btnImg.attr('src'))
+                
             })
-        }
+        };
+        
+
+        
+
+
 
         // 피자 수량 선택 - + 버튼
         qtNum.textContent = `${qtCount}`
@@ -140,6 +158,7 @@ function sub(){
         })
         side.innerHTML = sdList;
 
+        // 사이드 버튼 카운트
         const sdMinus = document.querySelectorAll('.sdlist div button:nth-of-type(1)'),
             sdPlus = document.querySelectorAll('.sdlist div button:nth-of-type(2)');
         let sdCount = 0, sd = 0;
@@ -148,13 +167,28 @@ function sub(){
 
         for(sd=0; sd<sdPlus.length; sd++ ){
             sdPlus[sd].addEventListener('click',function(){
-                if(sdCount < 11){
-                    sdCount++;
-                    
-                    if( sdCount > 10){
-                        alert( 'ssss'); sdCount--;
+                if(sdCount < 10){
+                    if( $(this).siblings('span').text() == '0'){
+                        sdCount = 0;
                     }
-                    $(this).siblings('span').text(sdCount)
+                    sdCount++;
+                    $(this).siblings('span').text(sdCount);
+                    
+                    console.log( $('.slick-track').children('li').children('div').find('span').text()  )
+
+                    // console.log( Number($(sdPlus).siblings('span').text()) )
+
+
+                    let sideAddName = `<span>${data.side[$(this).parent().parent('li').index()].name}</span>`,
+                        sideName = sideOrder.innerHTML;
+        
+                        console.log( $(this).parent().parent('li').index())
+                    if( $(sideOrder).children().length == 0){
+                        sideOrder.innerHTML += sideAddName
+                    }else{
+                        sideOrder.innerHTML = sideName + `<span> 외 ${$(sideOrder).children('span').length}개</span>`
+                    }
+
                 }
             })
             sdMinus[sd].addEventListener('click',function(){
@@ -163,6 +197,15 @@ function sub(){
                     $(this).siblings('span').text(sdCount)
                 }
             })
+
+
+            // if( target.getAttribute('src') == 'img/chk_btn1.png' ){
+            //     target.src = `img/chk_btn2.png`;
+            // }else{
+            //     sideOrder.textContent = ``
+            //     target.src = `img/chk_btn1.png`;
+            // }
+            
             
         }
 

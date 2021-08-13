@@ -73,6 +73,7 @@ function main(){
             $('.minipop').remove();
         });
 
+
         // 피자 목록
         let pzList='';
         const pizzalist = document.querySelector('.pizza ul');
@@ -99,13 +100,14 @@ function main(){
 
         // 배너 슬라이더
         $('.autoplay').slick({
-            slidesToShow: 3,
-            slidesToScroll: 1,
-            dots: true, infinite: true, 
-            autoplay: true,
-            autoplaySpeed: 1000,
-            vertical: true
+            slidesToShow: 3, slidesToScroll: 1,
+            dots: true, infinite: true,  autoplay: true,
+            autoplaySpeed: 1000, vertical: true
         });
+
+
+
+
 
         //피자 + 누르면 장바구니 숫자
         const cartNum = document.querySelector('.cart button'), //장바구니 위 버튼
@@ -114,10 +116,47 @@ function main(){
             deliList = document.querySelector('.deliList ul'), // 주문내역
             total = document.querySelector('.total'), //총금액
             cloud = document.querySelector('.cloud'); //말풍선
-         let i=0, b=1, bkList='', dbList='';
+         let b=1, bkList='', dbList='', bk = [];
 
-        
-        for(i=0; i<cartAddBtn.length; i++){
+        function createPizza(key){
+            this.title = data.pizza[key].title;
+            this.name = data.pizza[key].name;
+            this.img = data.pizza[key].img;
+            this.bgimg = data.pizza[key].bgimg;
+            this.price = data.pizza[key].price;
+            this.orig = data.pizza[key].orig;
+            this.edge = data.pizza[key].edge;
+            this.sale = data.pizza[key].sale;
+            this.count = 0;
+            this.total=0;
+            this.tag = function(){
+                    return `<li>
+                            <p>${this.name}<b>(L)</b> ${this.count}개</p>
+                            <small>
+                                <span>엣지</span>
+                                <span>${this.edge}</span>
+                            </small>
+                            <div>
+                                <span>${this.orig}원</span>
+                                <span>${this.sale}</span>
+                                <span>${this.price}원</span>
+                            </div>
+                        </li>`;
+            };
+            this.update = function(){
+                this.count += 1;
+                this.total = parseInt(data.pizza[key].price.replace(/,/g , '')) ;
+            }
+
+        }
+  
+        let obj = [],set=true;
+        data.pizza.forEach(function(v,k){
+            obj.push(new createPizza(k));
+        })
+
+
+        for(let i=0; i<cartAddBtn.length; i++){
             cartAddBtn[i].addEventListener('click',function(e){
                 $('.order').hide();             //기존 없애기
     
@@ -129,60 +168,68 @@ function main(){
                 cartNum.textContent = b++;
                 
 
-                
-                let bk = $(this).parents('li').index(); //인덱스 찾기
-
                 // 인덱스번호 맞춰서 해당 피자 내용
-                bkList += `<h2><span>내가 담은</span><span>${data.pizza[bk].name} L 1개</span></h2>
-                            <figure>
-                                <p><img src="img/bg_cart_empty_400.png" alt=""></p>
-                                <p class="plate"><img src="${data.pizza[bk].bgimg}" alt=""></p>
-                            </figure>`
+                bkList += `<div class="swiper-slide">
+                                <h2>
+                                    <span>내가 담은</span>
+                                    <span>${data.pizza[i].name} L 1개</span>
+                                </h2>
+                                <figure>
+                                    <p><img src="img/bg_cart_empty_400.png" alt=""></p>
+                                    <p class="plate"><img src="${data.pizza[i].bgimg}" alt=""></p>
+                                </figure>
+                            </div>`
                 bkPizza.innerHTML = bkList;
 
                 $('.basket').fadeIn(500);  // 피자 등장
-                $('.basket h2 > span').css({opacity:'1'}); // 상단 피자 이름 등장
+                $( '.basket > div:nth-of-type(1) article > div h2' ).animate( { opacity: '1' },10);  // 내가 담은
+                $('.basket > div:nth-of-type(1) article > div h2 > span').css({opacity:'1'}); // 리얼 하프앤하프 1개
+                $( '.plate' ).animate( { opacity: '1' },10); // 피자 사진 등장 
+
+                var swiper = new Swiper(".swiper-container", {
+                    direction: "vertical",
+                    mousewheelControl: true,
+                    slidesPerView: 1,
+                    freeMode: false,
+                    // followFinger: true,
+                    loop: false,
+                    initialSlide: 9,
+                    speed: 600,
+                    effect: "slide"
+                });
 
 
                 $('.delivery').fadeIn(700);     //포장배달 주문하기 등장
                 // 클릭한 피자의 주문 내역 추가
-                dbList += `<li>
-                                <p>${data.pizza[bk].name}<b>(L)</b> 1개</p>
-                                <small>
-                                    <span>엣지</span>
-                                    <span>${data.pizza[bk].edge}</span>
-                                </small>
-                                <div>
-                                    <span>${data.pizza[bk].orig}원</span>
-                                    <span>${data.pizza[bk].sale}</span>
-                                    <span>${data.pizza[bk].price}원</span>
-                                </div>
-                            </li>`
-                deliList.innerHTML = dbList;
-                
+                  
                 if(deliList.children.length != 1){
-                    deliList.style.height = '190px'
+                    deliList.style.height = '220px'
                 }
-
+              
+                bk.push($(this).parents('li').index()); //인덱스 찾기
+                obj[i].update();
+               
+                bk.sort((a,b)=>b-a);
+                deliList.innerHTML ='';
+                bk.forEach(function(k){
+                    deliList.innerHTML += obj[k].tag();
+                })
+        
 
                 // 합계 표시
-                let sum = [],
-                    priceEle = parseInt(data.pizza[bk].price.replace(/,/g , ''));
-                
-                sum.push(priceEle)
-                total.textContent = `(${bk + 1})` + sum + `원 주문`
+                let sum = 0;
+                bk.forEach(function(k){
+                    sum += obj[k].total;
+                })
+                total.textContent = `(${bk.length})` + sum + `원 주문`
 
 
-                let orderLen = $(bkPizza).children('figure').length;
-                bkPizza.style = `transform:translateY( ${-665 * (orderLen - 1)}px)`
-                cloud.style = `transform:translateY( ${-665 * (orderLen - 1)}px)`
+                // const pzplate = document.querySelector('.basket > div:nth-of-type(1) article')
+                // let orderLen = $(pzplate).children().length;
+                // pzplate.style = `transform:translateY( ${ - ($(pzplate).children('div').height()) * (orderLen - 1)}px)`
 
                 // $(bkPizza).find('figure > p:nth-of-type(1)').css({'transform':'translateY(' + 665 * (orderLen - 1) + 'px)' });
-                // $(bkPizza).find('.plate').css({'transform':'translateY(' + -665 * (orderLen - 1) + 'px)' });
-                // $(bkPizza).find('h2').css({'transform':'translateY(' + -665 * (orderLen - 1) + 'px)' });
-                // $(cloud).css({'transform':'translateY(' + -665 * (orderLen - 1) + 'px)' });
 
-                console.log(bkPizza.hasChildNodes('figure'))
 
 
             }); 

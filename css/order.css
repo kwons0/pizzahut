@@ -8,7 +8,7 @@ ul, li, ol {
   padding: 0;
 }
 
-h1, h2, h3, h4, figure, p {
+h1, h2, body .final ul .sum h2 span, h3, h4, figure, p {
   margin: 0;
 }
 
@@ -391,12 +391,12 @@ body header .submenu > div section:nth-of-type(1) ul li {
   width: 33%;
 }
 
-body header .submenu > div section:nth-of-type(1) ul li h2 {
+body header .submenu > div section:nth-of-type(1) ul li h2, body header .submenu > div section:nth-of-type(1) .final ul li .sum h2 span, body .final header .submenu > div section:nth-of-type(1) ul li .sum h2 span, body header .submenu > div section:nth-of-type(1) .final ul .sum h2 li span, body .final header .submenu > div section:nth-of-type(1) ul .sum h2 li span {
   font-size: 21px;
   padding: 0 0 10px 0;
 }
 
-body header .submenu > div section:nth-of-type(1) ul li h2 a {
+body header .submenu > div section:nth-of-type(1) ul li h2 a, body header .submenu > div section:nth-of-type(1) .final ul li .sum h2 span a, body .final header .submenu > div section:nth-of-type(1) ul li .sum h2 span a, body header .submenu > div section:nth-of-type(1) .final ul .sum h2 li span a, body .final header .submenu > div section:nth-of-type(1) ul .sum h2 li span a {
   font-size: 21px;
 }
 
@@ -641,7 +641,7 @@ body footer > div .sns div small {
   color: #7a7a7a;
 }
 
-body .detail .select .size h2, body .detail .select .edge h2, body .detail .select .topping h2, body .detail .select .quantity h2, body .detail .select .side h2, body .detail .select .drink h2 {
+body .detail .select .size h2, body .detail .select .size .final ul .sum h2 span, body .final ul .sum h2 .detail .select .size span, body .detail .select .edge h2, body .detail .select .edge .final ul .sum h2 span, body .final ul .sum h2 .detail .select .edge span, body .detail .select .topping h2, body .detail .select .topping .final ul .sum h2 span, body .final ul .sum h2 .detail .select .topping span, body .detail .select .quantity h2, body .detail .select .quantity .final ul .sum h2 span, body .final ul .sum h2 .detail .select .quantity span, body .detail .select .side h2, body .detail .select .side .final ul .sum h2 span, body .final ul .sum h2 .detail .select .side span, body .detail .select .drink h2, body .detail .select .drink .final ul .sum h2 span, body .final ul .sum h2 .detail .select .drink span {
   font-size: 24px;
   font-weight: 800;
 }
@@ -703,7 +703,7 @@ body .tab {
   padding: 170px 40px 0 40px;
 }
 
-body .tab h2 {
+body .tab h2, body .tab .final ul .sum h2 span, body .final ul .sum h2 .tab span {
   width: 100%;
   font-weight: 800;
   font-size: 34px;
@@ -835,6 +835,7 @@ body .detail {
       -ms-flex-pack: justify;
           justify-content: space-between;
   width: 82%;
+  min-width: 1440px;
   margin: 0 auto;
   padding: 0 40px;
 }
@@ -848,7 +849,7 @@ body .detail .half {
   padding: 0 10px 40px 0;
 }
 
-body .detail .half h2 {
+body .detail .half h2, body .detail .half .final ul .sum h2 span, body .final ul .sum h2 .detail .half span {
   font-size: 40px;
   font-weight: 100;
   margin-bottom: 10px;
@@ -906,7 +907,7 @@ body .detail .select .size {
       flex-wrap: wrap;
 }
 
-body .detail .select .size h2 {
+body .detail .select .size h2, body .detail .select .size .final ul .sum h2 span, body .final ul .sum h2 .detail .select .size span {
   margin-bottom: 35px;
   width: 100%;
 }
@@ -1465,7 +1466,7 @@ body .nutrition .facpop1 > div ul li article {
   line-height: 2;
 }
 
-body .nutrition .facpop1 > div ul li article h2 {
+body .nutrition .facpop1 > div ul li article h2, body .nutrition .facpop1 > div .final ul li article .sum h2 span, body .final .nutrition .facpop1 > div ul li article .sum h2 span, body .nutrition .facpop1 > div .final ul .sum h2 li article span, body .final .nutrition .facpop1 > div ul .sum h2 li article span {
   font-size: 20px;
   font-weight: 600;
 }
@@ -1736,9 +1737,10 @@ body .final ul .sum {
   border-radius: 0 20px 0 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  cursor: pointer;
 }
 
-body .final ul .sum h2 {
+body .final ul .sum h2, body .final ul .sum h2 span {
   text-align: center;
   font-size: 24px;
   font-weight: 500;

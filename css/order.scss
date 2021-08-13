@@ -59,7 +59,7 @@ body{ min-width: 1440px;
     }
 
     .detail{
-        @include flex(); width: 82%; margin: 0 auto; padding: 0 40px;
+        @include flex(); width: 82%; min-width: 1440px; margin: 0 auto; padding: 0 40px;
         .half{ width: 600px; position: sticky; top: 141px; left:0; padding: 0 10px 40px 0; 
             h2{@include font(40px,100); margin-bottom: 10px;}
             span{ display: block; width: 500px; line-height: 1.35; font-weight: 400; }
@@ -315,8 +315,10 @@ body{ min-width: 1440px;
                 }
                 &:nth-of-type(3)::after{display: none;}
             }
-            .sum{ background: $color; height: 100%; padding: 28px 0; border-radius: 0 20px 0 0; box-sizing: border-box;
-                h2{ text-align: center; @include font(24px,500); color: white; }
+            .sum{ background: $color; height: 100%; padding: 28px 0; border-radius: 0 20px 0 0; box-sizing: border-box; cursor: pointer;
+                h2{ text-align: center; @include font(24px,500); color: white; 
+                    span{ @extend h2 ; }
+                }
                 &::after{display:none;}
             }
         }
