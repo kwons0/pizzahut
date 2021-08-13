@@ -202,9 +202,6 @@ function main(){
                 $('.delivery').fadeIn(700);     //포장배달 주문하기 등장
                 // 클릭한 피자의 주문 내역 추가
                   
-                if(deliList.children.length != 1){
-                    deliList.style.height = '220px'
-                }
               
                 bk.push($(this).parents('li').index()); //인덱스 찾기
                 obj[i].update();
@@ -214,7 +211,12 @@ function main(){
                 bk.forEach(function(k){
                     deliList.innerHTML += obj[k].tag();
                 })
-        
+
+                
+                if(deliList.children.length != 1){
+                    deliList.style.height = '220px'
+                }
+
 
                 // 합계 표시
                 let sum = 0;

@@ -726,7 +726,7 @@ body .contents {
 }
 
 body .contents .recommend {
-  min-width: calc(33% - 130px);
+  min-width: calc(33% - 140px);
   height: 100%;
   left: 0;
   top: 0;
@@ -754,7 +754,7 @@ body .contents .recommend .reco {
       -ms-flex-pack: start;
           justify-content: flex-start;
   margin-top: 37vh;
-  min-width: 130px;
+  min-width: 140px;
 }
 
 body .contents .recommend .reco::before {

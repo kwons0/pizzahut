@@ -125,7 +125,7 @@
     position:absolute;
     font-size:0; border:0; background:none;
 }
-.slick-prev{ left:360px; top:200px; width: 30px; height: 30px; 
+.slick-prev{ left:360px; top:23.5vh; width: 30px; height: 30px; 
     background: url('../img/btn_arrow.png') no-repeat;
     transform: rotate(180deg);
 }
@@ -135,7 +135,7 @@
     font-size:5rem;
     /* background:'' */
 }
-.slick-next{  left:360px; top:250px; width: 30px; height: 30px; 
+.slick-next{  left:360px; top:28.5vh; width: 30px; height: 30px; 
     background: url('../img/btn_arrow.png') no-repeat;
 }
 .slick-next::after{

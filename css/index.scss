@@ -25,11 +25,11 @@ body{ position: relative;
     }
 
     .contents{ @include flex(); width: 100%; min-width: 1440px; padding-top: 101px; @include hei();
-        .recommend{ min-width: calc(33% - 130px); height: 100%; left: 0; top: 0;
+        .recommend{ min-width: calc(33% - 140px); height: 100%; left: 0; top: 0;
             box-sizing: border-box; @include flex();
 
             .reco{  display: flex; align-items: center; justify-content: flex-start;
-                margin-top: 37vh; min-width: 130px;
+                margin-top: 37vh; min-width: 140px;
                 &::before { @include afbe(); width: 30px; height: 3px; background: $color; }
                 h2{ padding-left: 20px; font-size: 22px; }
             }
