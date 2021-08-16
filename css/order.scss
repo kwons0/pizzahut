@@ -59,7 +59,7 @@ body{ min-width: 1440px;
     }
 
     .detail{
-        @include flex(); width: 82%; min-width: 1440px; margin: 0 auto; padding: 0 40px;
+        @include flex(); width: 82%; margin: 0 auto; padding: 0 40px;
         .half{ width: 600px; position: sticky; top: 141px; left:0; padding: 0 10px 40px 0; 
             h2{@include font(40px,100); margin-bottom: 10px;}
             span{ display: block; width: 500px; line-height: 1.35; font-weight: 400; }
@@ -203,7 +203,7 @@ body{ min-width: 1440px;
                         p{width: 120px; height: 120px; margin: 0 auto;
                             img{ width: 100%; }
                         }
-                        span{ display: block; padding: 10px 0;}
+                        span{ display: block; padding: 10px 0; width: 110px;}
                         h3{ margin-bottom: 20px;}
                         div{ width: 90px; height: 20px; margin: 0 auto; padding: 5px 0;
                             border: 1px solid rgb(221, 221, 221); border-radius: 15px;
@@ -303,13 +303,13 @@ body{ min-width: 1440px;
 
     .final{ width: 95%; min-width: 1440px; height: 80px; padding: 0 40px; 
         position: fixed; left: 50%; bottom: 0; transform: translateX(-50%);
-        z-index: 18;
+        z-index: 8;
         &.fixedOn{ position: absolute; bottom: 200px; left: 50%; transform: translateX(-50%);}
         ul{ width: 100%; height: 80px; background: white; @include flex(); border-radius: 20px 20px 0 0;
             box-shadow: 0 3px 20px 0 rgba(0,0,0,0.1);
             li{ width: 25%; padding: 20px 0 0 50px; position: relative;
                 h2{}
-                p{ font-size: 15px; padding-top: 5px;}
+                p{ font-size: 15px; padding-top: 5px; display: inline-block;}
                 &::after{ @include afbe(); width: 2px; height: 50px; background: #ddd; 
                     position: absolute; right: 0; top: 15px;
                 }
@@ -317,6 +317,7 @@ body{ min-width: 1440px;
             }
             .sum{ background: $color; height: 100%; padding: 28px 0; border-radius: 0 20px 0 0; box-sizing: border-box; cursor: pointer;
                 h2{ text-align: center; @include font(24px,500); color: white; 
+                    b{ @extend h2 ;}
                     span{ @extend h2 ; }
                 }
                 &::after{display:none;}

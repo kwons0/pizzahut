@@ -206,13 +206,18 @@ function main(){
                 bk.push($(this).parents('li').index()); //인덱스 찾기
                 obj[i].update();
                
-                bk.sort((a,b)=>b-a);
+                const set2 = new Set(bk);
+                const bkset = [...set2];
+
+                bkset.sort((a,b)=>b-a);
                 deliList.innerHTML ='';
-                bk.forEach(function(k){
+                bkset.forEach(function(k){
                     deliList.innerHTML += obj[k].tag();
                 })
 
-                
+
+
+
                 if(deliList.children.length != 1){
                     deliList.style.height = '220px'
                 }

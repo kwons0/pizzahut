@@ -64,16 +64,36 @@ function sub(){
             drinkOrder = document.querySelector('.drinkOrder'),
             finalPrice = document.querySelector('.finalPrice');
         let sizeNum = 0, tpList='', sdList='', drList='', infoList='', qtCount = 1;
+        let total = new Array();
+
+        let basicWon = $('.size').children('figure.active').children('article').children('a').children('span:nth-of-type(2)');
+        total.push( parseInt( $(basicWon).text().replace(/,/g , '')) )
+
+
         
         //사이즈 선택 버튼
+
+        // parseInt(data.pizza[key].price.replace(/,/g , ''))
+        // const sizeW = document.querySelector('.size figure.active article a span:nth-of-type(2)'),
+        // sizeWon = parseInt(sizeW.textContent.replace(/,/g , ''));
+        // console.log( sizeWon )
+
         for( let z=0; z<sizeBtn.length; z++){
             sizeBtn[z].addEventListener('click',function(){
                 sizeBtn[sizeNum].classList.remove('active');
                 sizeBtn[z].classList.add('active');
                 sizeNum = z;
-                
+
+                const sizeW = $(this).children('article').children('a').children('span:nth-of-type(2)');
+                if( $(sizeBtn).hasClass != 'active') total.pop(this) ;
+                total.push( parseInt( $(sizeW).text().replace(/,/g , '')) )
+
+                setPrice()
             })
         }
+
+        
+
 
         // 토핑 목록
         data.topping.forEach(function(t){
@@ -86,44 +106,67 @@ function sub(){
         })
         topping.innerHTML = tpList;
 
-        // 토핑 체크박스 이미지 변경
-        const tpBtn = document.querySelectorAll('.tplist a');
+
+
+        // const tpBtn = document.querySelectorAll('.tplist input'),
+        //     tpBtnChk = document.querySelectorAll('.tplist label');
+        
+        // var arrayParam = new Array();
+
+        // <input type="checkbox" id="chkBox" value="tp">
+        // <label for="chkBox"></label>
+
+        // for( let ck=0; ck<tpBtn.length; ck++){
+        //     tpBtn[ck].addEventListener('click',function(){
+        //         // var idx = $('label').parent().index(this);
+        //         // console.log($('input[name=chkBox]').eq(idx).index())
+        //         // console.log( idx)
+
+
+        //         $("input:checkbox:checked").each(function(){
+        //             arrayParam.push($(this).parent().index());
+        //             if (!arrayParam.includes($(this).parent().index())) {
+        //                 arrayParam.push($(this).parent().index());
+        //             }
+        //         });
+        //         console.log( arrayParam)
+        //     })
+        // };
+                  
         
 
-
+        
+        // 토핑 체크박스 이미지 변경 + 2개 이상 알람
+        const tpBtn = document.querySelectorAll('.tplist a img');
+        var tpChk = new Array();
+        
         for( let ck=0; ck<tpBtn.length; ck++){
             tpBtn[ck].addEventListener('click',function(){
                 let target = event.target;
-
                 if( target.getAttribute('src') == 'img/chk_btn1.png' ){
+                    tpChk.push( $(this).parent().index() )
+                    if( tpChk.length > 2){
+                        alert('토핑은 최대 2가지만 가능합니다.')
+                        tpChk.pop()
+                        return;
+                    }
                     target.src = `img/chk_btn2.png`;
-                }else{
-                    target.src = `img/chk_btn1.png`;
-                }
+                    total.push( parseInt( $(this).parent().siblings('h3').text().replace(/,/g , '')) )
 
-                // console.log( $('.tpselect').children('li').children('a').find('img').attr('src') == 'img/chk_btn2.png')
-                
-                // let btnImg = $('.slick-track').children('li').children('a').find('img');
-                // console.log( btnImg.attr('src'))
-                
+                }else{
+                    tpChk.pop()
+                    target.src = `img/chk_btn1.png`;
+                    total.pop(this)
+                }
+                setPrice()
             })
         };
-        
-
-        
-
 
 
         // 피자 수량 선택 - + 버튼
         qtNum.textContent = `${qtCount}`
-
-        qtMinus.addEventListener('click',function(){
-            if( qtCount > 1 ){
-                qtCount--;
-                qtNum.textContent = `${qtCount}`;
-            }
-            qtNum.textContent = `${qtCount}`
-        })
+        var size1 = $('.size').children('figure:nth-of-type(1)').children('article').children('a').children('span:nth-of-type(2)').text(),
+            size2 = $('.size').children('figure:nth-of-type(2)').children('article').children('a').children('span:nth-of-type(2)').text();
 
         qtPlus.addEventListener('click',function(){
             if( qtCount < 10){ 
@@ -132,9 +175,28 @@ function sub(){
                     alert('피자는 최대 9판까지 가능합니다. 단체주문은 080-500-5588로 문의주시기 바랍니다.');
                     qtCount--;
                 }
+
                 qtNum.textContent = `${qtCount}`
-               
+                $('.pzNum').text( qtCount )
+                if( $('.size').children('figure.active:nth-of-type(1)').hasClass('active') ){
+                    total.push( parseInt( size1.replace(/,/g , '')) )
+                }else{
+                    total.push( parseInt( size2.replace(/,/g , '')) )
+                }
             }
+            setPrice()
+        })
+
+        qtMinus.addEventListener('click',function(){
+            if( qtCount > 1 ){
+                qtCount--;
+                qtNum.textContent = `${qtCount}`;
+                $('.pzNum').text( qtCount )
+                total.pop(this)
+                console.log( total)
+            }
+            qtNum.textContent = `${qtCount}`
+            setPrice()
         })
 
 
@@ -158,58 +220,6 @@ function sub(){
         })
         side.innerHTML = sdList;
 
-        // 사이드 버튼 카운트
-        const sdMinus = document.querySelectorAll('.sdlist div button:nth-of-type(1)'),
-            sdPlus = document.querySelectorAll('.sdlist div button:nth-of-type(2)');
-        let sdCount = 0, sd = 0;
-
-        // sideNum.textContent = `${sdCount}`;
-
-        for(sd=0; sd<sdPlus.length; sd++ ){
-            sdPlus[sd].addEventListener('click',function(){
-                if(sdCount < 10){
-                    if( $(this).siblings('span').text() == '0'){
-                        sdCount = 0;
-                    }
-                    sdCount++;
-                    $(this).siblings('span').text(sdCount);
-                    
-                    console.log( $('.slick-track').children('li').children('div').find('span').text()  )
-
-                    // console.log( Number($(sdPlus).siblings('span').text()) )
-
-
-                    let sideAddName = `<span>${data.side[$(this).parent().parent('li').index()].name}</span>`,
-                        sideName = sideOrder.innerHTML;
-        
-                        console.log( $(this).parent().parent('li').index())
-                    if( $(sideOrder).children().length == 0){
-                        sideOrder.innerHTML += sideAddName
-                    }else{
-                        sideOrder.innerHTML = sideName + `<span> 외 ${$(sideOrder).children('span').length}개</span>`
-                    }
-
-                }
-            })
-            sdMinus[sd].addEventListener('click',function(){
-                if(sdCount > 0){
-                    sdCount--;
-                    $(this).siblings('span').text(sdCount)
-                }
-            })
-
-
-            // if( target.getAttribute('src') == 'img/chk_btn1.png' ){
-            //     target.src = `img/chk_btn2.png`;
-            // }else{
-            //     sideOrder.textContent = ``
-            //     target.src = `img/chk_btn1.png`;
-            // }
-            
-            
-        }
-
-
         // 소스&음료 목록
         data.drink.forEach(function(d){
             drList += `<li class="drlist">
@@ -222,6 +232,132 @@ function sub(){
                         </li>`
         })
         drink.innerHTML = drList;
+        
+
+        const sdMinus = document.querySelectorAll('.sdlist div button:nth-of-type(1)'),
+            sdPlus = document.querySelectorAll('.sdlist div button:nth-of-type(2)');
+        let sdNum = 0, sdCount = 0;
+
+        const drMinus = document.querySelectorAll('.drlist div button:nth-of-type(1)'),
+            drPlus = document.querySelectorAll('.drlist div button:nth-of-type(2)');
+        let drNum = 0, drCount = 0;
+
+
+        // 사이드 버튼 카운트
+        for(let sd=0; sd<sdPlus.length; sd++ ){
+            sdPlus[sd].addEventListener('click',function(){
+                if( sdCount + drCount > 9){
+                    alert('사이드 & 음료 최대 10개까지 가능합니다. 단체주문은 080-500-5588로 문의주시기 바랍니다.');
+                    return;
+                }
+                if(sdCount < 10){
+                    sdNum = Number( $(this).siblings('span').text() );
+                    sdNum++;
+                    $(this).siblings('span').text( sdNum );
+                    sdCount++;
+                    
+                    let sideAddName = `<span>${data.side[$(this).parent().parent('li').index()].name}&nbsp;</span>`,
+                        sdCo = sdCount - 1,
+                        sdOtherNum = `<span>외 ${sdCo}개</span>`;
+
+                    if( $(sideOrder).children().length == 0){
+                        sideOrder.innerHTML = sideAddName
+                    }else if($(sideOrder).children().length == 1) {
+                        $(sideOrder).children().eq(0).after( $(sdOtherNum) );
+                    }else{
+                        $(sideOrder).children().eq(1).html(`<span>외 ${sdCo}개</span>`);
+                    }
+                    
+                    //값 계산
+                    var sideW = $(this).parent().siblings('article').children('h3');
+                    total.push( parseInt( $(sideW).text().replace(/,/g , '') ) )
+                }
+                setPrice()
+            })
+            sdMinus[sd].addEventListener('click',function(){
+                if(sdCount > 0){
+                    sdNum = Number( $(this).siblings('span').text() );
+                    
+                    if( sdCount == '0') return;
+                    if( sdNum == '0') return;
+                    sdNum--;
+                    sdCount--;
+
+                    let sdCo = sdCount - 1;
+                    $(sideOrder).children().eq(1).html(`<span>외 ${sdCo}개</span>`);
+
+                    if( sdCount == 1){
+                        $(sideOrder).children().eq(1).remove();
+                    }else if( sdCount == 0 ){
+                        $(sideOrder).children().remove();
+                    }
+                    $(this).siblings('span').text( sdNum );
+
+                    //값 계산
+                    total.pop(this)
+                }
+                setPrice()
+            })
+        }
+
+        // 음료&기타 버튼 카운트
+
+        for(let dr=0; dr<drPlus.length; dr++ ){
+            drPlus[dr].addEventListener('click',function(){
+                if( sdCount + drCount > 9){
+                    alert('사이드 & 음료 최대 10개까지 가능합니다. 단체주문은 080-500-5588로 문의주시기 바랍니다.');
+                    return;
+                }
+                if(drCount < 10){
+                    drNum = Number( $(this).siblings('span').text() );
+                    drNum++;
+                    $(this).siblings('span').text( drNum );
+                    drCount++;
+                    
+                    let drinkAddName = `<span>${data.drink[$(this).parent().parent('li').index()].name}&nbsp;</span>`,
+                        drCo = drCount - 1,
+                        drOtherNum = `<span>외 ${drCo}개</span>`;
+
+                    if( $(drinkOrder).children().length == 0){
+                        drinkOrder.innerHTML = drinkAddName
+                    }else if($(drinkOrder).children().length == 1) {
+                        $(drinkOrder).children().eq(0).after( $(drOtherNum) );
+                    }else{
+                        $(drinkOrder).children().eq(1).html(`<span>외 ${drCo}개</span>`);
+                    }
+
+                    //값 계산
+                    var drinkW = $(this).parent().siblings('h3');
+                    total.push( parseInt( $(drinkW).text().replace(/,/g , '') ) )
+                }
+                setPrice()
+            })
+            drMinus[dr].addEventListener('click',function(){
+                if(drCount > 0){
+                    drNum = Number( $(this).siblings('span').text() );
+                    
+                    if( drCount == '0') return;
+                    if( drNum == '0') return;
+                    drNum--;
+                    drCount--;
+
+                    let drCo = drCount - 1;
+                    $(drinkOrder).children().eq(1).html(`<span>외 ${drCo}개</span>`);
+
+                    if( drCount == 1){
+                        $(drinkOrder).children().eq(1).remove();
+                    }else if( drCount == 0 ){
+                        $(drinkOrder).children().remove();
+                    }
+                    $(this).siblings('span').text( drNum );
+                    total.pop(this)
+                }
+                setPrice()
+
+            })
+        }
+
+        
 
         // 좌우 슬라이드
         $('.responsive').slick({
@@ -290,6 +426,18 @@ function sub(){
                 $(final).removeClass('fixedOn')
             }
         });
+        
+
+        function sum(array) {
+            var result = 0.0;
+            for (var i = 0; i < array.length; i++)
+              result += array[i];
+            return result;
+        }
+        function setPrice(){
+            $(finalPrice).text( sum(total).toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",") )
+        }
+        
 
     }
 };

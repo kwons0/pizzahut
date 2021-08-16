@@ -37,27 +37,27 @@
             "orig":"5,800", "price":"2,900원"
         },
         {
-            "sale":"", "img":"img/side-5.png", "name":"소이갈릭 윙<br>(8조각)",
+            "sale":"", "img":"img/side-5.png", "name":"소이갈릭 윙 (8조각)",
             "orig":"", "price":"7,900원"
         },
         {
-            "sale":"", "img":"img/side-5.png", "name":"소이갈릭 윙<br>(4조각)",
+            "sale":"", "img":"img/side-5.png", "name":"소이갈릭 윙 (4조각)",
             "orig":"", "price":"4,200원"
         },
         {
-            "sale":"", "img":"img/side-6.png", "name":"하와이안 갈릭치킨<br>(8조각)",
+            "sale":"", "img":"img/side-6.png", "name":"하와이안 갈릭치킨 (8조각)",
             "orig":"", "price":"9,900원"
         },
         {
-            "sale":"", "img":"img/side-6.png", "name":"하와이안 갈릭치킨<br>(4조각)",
+            "sale":"", "img":"img/side-6.png", "name":"하와이안 갈릭치킨(4조각)",
             "orig":"", "price":"5,800원"
         },
         {
-            "sale":"", "img":"img/side-7.png", "name":"순살 허브치킨<br>(8조각)",
+            "sale":"", "img":"img/side-7.png", "name":"순살 허브치킨(8조각)",
             "orig":"", "price":"9,900원"
         },
         {
-            "sale":"", "img":"img/side-7.png", "name":"순살 허브치킨<br>(4조각)",
+            "sale":"", "img":"img/side-7.png", "name":"순살 허브치킨 (4조각)",
             "orig":"", "price":"5,800원"
         },
         {
@@ -92,10 +92,10 @@
     ],
 
     "drink":[
-        { "img":"img/sou-1.png", "name":"치즈크러스트<br>디핑소스(30g)", "price":"500원" },
-        { "img":"img/sou-2.png", "name":"그뤼에르치즈<br>디핑소스", "price":"1,000원" },
-        { "img":"img/sou-3.png", "name":"갈릭 스윗 소스<br>(치킨소스)", "price":"500원" },
-        { "img":"img/sou-4.png", "name":"허니머스터드<br>소스", "price":"300원" },
+        { "img":"img/sou-1.png", "name":"치즈크러스트 디핑소스(30g)", "price":"500원" },
+        { "img":"img/sou-2.png", "name":"그뤼에르치즈 디핑소스", "price":"1,000원" },
+        { "img":"img/sou-3.png", "name":"갈릭 스윗 소스 (치킨소스)", "price":"500원" },
+        { "img":"img/sou-4.png", "name":"허니머스터드 소스", "price":"300원" },
         { "img":"img/sou-5.png", "name":"핫소스", "price":"100원" },
         { "img":"img/sou-6.png", "name":"바른생피클(M)", "price":"500원" },
         { "img":"img/sou-6.png", "name":"바른생피클(L)", "price":"800원" },
