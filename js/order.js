@@ -70,14 +70,6 @@ function sub(){
         total.push( parseInt( $(basicWon).text().replace(/,/g , '')) )
 
 
-        
-        //사이즈 선택 버튼
-
-        // parseInt(data.pizza[key].price.replace(/,/g , ''))
-        // const sizeW = document.querySelector('.size figure.active article a span:nth-of-type(2)'),
-        // sizeWon = parseInt(sizeW.textContent.replace(/,/g , ''));
-        // console.log( sizeWon )
-
         for( let z=0; z<sizeBtn.length; z++){
             sizeBtn[z].addEventListener('click',function(){
                 sizeBtn[sizeNum].classList.remove('active');
@@ -105,35 +97,6 @@ function sub(){
                         </li>`
         })
         topping.innerHTML = tpList;
-
-
-
-        // const tpBtn = document.querySelectorAll('.tplist input'),
-        //     tpBtnChk = document.querySelectorAll('.tplist label');
-        
-        // var arrayParam = new Array();
-
-        // <input type="checkbox" id="chkBox" value="tp">
-        // <label for="chkBox"></label>
-
-        // for( let ck=0; ck<tpBtn.length; ck++){
-        //     tpBtn[ck].addEventListener('click',function(){
-        //         // var idx = $('label').parent().index(this);
-        //         // console.log($('input[name=chkBox]').eq(idx).index())
-        //         // console.log( idx)
-
-
-        //         $("input:checkbox:checked").each(function(){
-        //             arrayParam.push($(this).parent().index());
-        //             if (!arrayParam.includes($(this).parent().index())) {
-        //                 arrayParam.push($(this).parent().index());
-        //             }
-        //         });
-        //         console.log( arrayParam)
-        //     })
-        // };
-                  
-        
 
         
         // 토핑 체크박스 이미지 변경 + 2개 이상 알람
@@ -408,12 +371,6 @@ function sub(){
         })
 
         
-
-
-
-
-
-
         
         // final 네비 스크롤 내리면 고정
         const final = document.querySelector('.final'),

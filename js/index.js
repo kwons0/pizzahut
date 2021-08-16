@@ -114,9 +114,8 @@ function main(){
             cartAddBtn = document.querySelectorAll('.pizza ul li article button'), //피자리스트 더하기(+) 버튼
             bkPizza = document.querySelector('.basket article'), //피자 글씨 & 큰사진
             deliList = document.querySelector('.deliList ul'), // 주문내역
-            total = document.querySelector('.total'), //총금액
-            cloud = document.querySelector('.cloud'); //말풍선
-         let b=1, bkList='', dbList='', bk = [];
+            total = document.querySelector('.total'); //총금액
+         let b=1, bkList='', bk = [];
 
         function createPizza(key){
             this.title = data.pizza[key].title;
@@ -150,7 +149,7 @@ function main(){
 
         }
   
-        let obj = [],set=true;
+        let obj = [];
         data.pizza.forEach(function(v,k){
             obj.push(new createPizza(k));
         })
@@ -203,13 +202,14 @@ function main(){
                 // 클릭한 피자의 주문 내역 추가
                   
               
-                bk.push($(this).parents('li').index()); //인덱스 찾기
+                bk.unshift($(this).parents('li').index());
                 obj[i].update();
                
                 const set2 = new Set(bk);
                 const bkset = [...set2];
 
-                bkset.sort((a,b)=>b-a);
+                // bkset.sort((a,b)=>b-a);
+                console.log(bkset)
                 deliList.innerHTML ='';
                 bkset.forEach(function(k){
                     deliList.innerHTML += obj[k].tag();
@@ -217,7 +217,7 @@ function main(){
 
 
 
-
+                //담은 내역 2개 이상 높이
                 if(deliList.children.length != 1){
                     deliList.style.height = '220px'
                 }
@@ -229,15 +229,6 @@ function main(){
                     sum += obj[k].total;
                 })
                 total.textContent = `(${bk.length})` + sum + `원 주문`
-
-
-                // const pzplate = document.querySelector('.basket > div:nth-of-type(1) article')
-                // let orderLen = $(pzplate).children().length;
-                // pzplate.style = `transform:translateY( ${ - ($(pzplate).children('div').height()) * (orderLen - 1)}px)`
-
-                // $(bkPizza).find('figure > p:nth-of-type(1)').css({'transform':'translateY(' + 665 * (orderLen - 1) + 'px)' });
-
-
 
             }); 
         }

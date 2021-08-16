@@ -904,7 +904,7 @@ body .contents .order {
 body .contents .order h2 {
   font-size: 54px;
   font-weight: 300;
-  padding: 5vh 0 2vh 0;
+  padding: 5vh 0 2vh 30px;
 }
 
 body .contents .order div {
@@ -1021,7 +1021,7 @@ body .contents .basket > div:nth-of-type(1) article {
 }
 
 body .contents .basket > div:nth-of-type(1) article div h2 {
-  padding: 5vh 0 2vh 0;
+  padding: 5vh 0 2vh 30px;
   -webkit-transition: .5s .2s;
   transition: .5s .2s;
   opacity: 0;
@@ -1084,7 +1084,7 @@ body .contents .basket .cloud {
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
   height: auto;
-  z-index: 10;
+  z-index: 7;
 }
 
 body .contents .basket .cloud a {
