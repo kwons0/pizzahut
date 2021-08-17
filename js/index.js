@@ -228,7 +228,7 @@ function main(){
                 bk.forEach(function(k){
                     sum += obj[k].total;
                 })
-                total.textContent = `(${bk.length})` + sum + `원 주문`
+                total.textContent = `(${bk.length})` + sum.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",") + `원 주문`
 
             }); 
         }
