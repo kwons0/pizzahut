@@ -216,6 +216,14 @@ body{ min-width: 1440px;
             }
         }
     }
+
+    .topbtn{ opacity: 0;
+        position: fixed; bottom: calc(3% + 80px); right: 3%; width: 60px; height: 60px;
+        text-align: center; padding-top: 13px; box-sizing: border-box; border-radius: 50%; transition: .3s;
+        &:hover{ @include boxshadow()}
+        &.active{ opacity: 1;}
+        &.fixed{ opacity: 1; position: absolute; bottom: calc(3% + 280px); right: 3%;}
+    }
     
     .nutrition{
         .facts{

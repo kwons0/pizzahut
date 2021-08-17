@@ -320,13 +320,13 @@ function sub(){
             })
         }
 
-        
 
         // 좌우 슬라이드
         $('.responsive').slick({
             dots: true, infinite: false,
             speed: 300, slidesToShow: 4, slidesToScroll: 4
         });
+
 
 
         const infoPop = document.querySelector('.facpop1 > div ul');
