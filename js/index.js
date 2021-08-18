@@ -82,7 +82,7 @@ function main(){
                             <figure>
                                 <figcaption>${v.title}</figcaption>
                                 <h2>${v.name}</h2>
-                                <p><img src="${v.img}"></p>
+                                <p><img src="${v.img}" alt=""></p>
                             </figure>
                             <article>
                                 <div>

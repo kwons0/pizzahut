@@ -90,10 +90,10 @@ function sub(){
         // 토핑 목록
         data.topping.forEach(function(t){
             tpList += `<li class="tplist">
-                            <p><img src="${t.img}"></p>
+                            <p><img src="${t.img}" alt=""></p>
                             <span>${t.name}</span>
                             <h3>${t.price}</h3>
-                            <a><img src="img/chk_btn1.png"></a>
+                            <a><img src="img/chk_btn1.png" alt=""></a>
                         </li>`
         })
         topping.innerHTML = tpList;
@@ -168,9 +168,9 @@ function sub(){
             sdList += `<li class="sdlist">
                             <figure>
                                 <figcaption>${s.sale}</figcaption>
-                                <p><img src="img/flag_arrow1.png"></p>
+                                <p><img src="img/flag_arrow1.png" alt=""></p>
                             </figure>
-                            <p><img src="${s.img}"></p>
+                            <p><img src="${s.img}" alt=""></p>
                             <small>${s.name}</small>
                             <article>
                                 <small>${s.orig}</small>
@@ -186,7 +186,7 @@ function sub(){
         // 소스&음료 목록
         data.drink.forEach(function(d){
             drList += `<li class="drlist">
-                            <p><img src="${d.img}"></p>
+                            <p><img src="${d.img}" alt=""></p>
                             <span>${d.name}</span>
                             <h3>${d.price}</h3>
                             <div>
@@ -333,7 +333,7 @@ function sub(){
         // 토핑정보 팝업
         data.tpinfo.forEach(function(i){
             infoList += `<li>
-                            <p><img src="${i.img}"></p>
+                            <p><img src="${i.img}" alt=""></p>
                             <article>
                                 <h2>${i.name}</h2>
                                 <small>${i.detail}</small>
