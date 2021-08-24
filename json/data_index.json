@@ -5,30 +5,30 @@
             "name":"로스트비프",
             "img":"img/pizza-1.png",
             "bgimg":"img/bg-pizza-1.png",
-            "price":"26,920",
+            "price":"28,900",
             "orig":"35,900",
             "edge":"리치골드엣지",
-            "sale":"25%"
+            "sale":"7천원"
         },
         {
             "title":"로스트비프와 허니머스타드 쉬림프를 엣지 끝까지 반반으로 즐기는 리얼 하프앤하프",
             "name":"리얼 하프앤하프",
             "img":"img/pizza-2.png",
             "bgimg":"img/bg-pizza-2.png",
-            "price":"26,920",
+            "price":"28,900",
             "orig":"35,900",
             "edge":"하프앤하프엣지",
-            "sale":"25%"
+            "sale":"7천원"
         },
         {
             "title":"프리미엄 티본스테이크와 쉬림프를 한판으로!",
             "name":"티본&쉬림프",
             "img":"img/pizza-3.png",
             "bgimg":"img/bg-pizza-3.png",
-            "price":"26,920",
+            "price":"28,900",
             "orig":"35,900",
             "edge":"리치골드엣지",
-            "sale":"25%"
+            "sale":"7천원"
         },
         {
             "title":"허니버터 통옥수수가 입 안에서 달콤하게 터지는 단짠 조합",
@@ -38,7 +38,7 @@
             "price":"22,900",
             "orig":"26,900",
             "edge":"마니아 오리지널엣지",
-            "sale":"15%"
+            "sale":"4천원"
         },
         {
             "title":"살라미, 베이컨, 페페로니가 꽃 피운 육즙 가득한 맛의 절정",
@@ -48,7 +48,7 @@
             "price":"22,900",
             "orig":"26,900",
             "edge":"마니아 오리지널엣지",
-            "sale":"15%"
+            "sale":"4천원"
         },
         {
             "title":"불고기&소시지와 스모키허니머스타드 소스로 즐기는 풍성한 BBQ 한판",
@@ -58,37 +58,37 @@
             "price":"22,900",
             "orig":"26,900",
             "edge":"마니아 오리지널엣지",
-            "sale":"15%"
+            "sale":"4천원"
         },
         {
             "title":"오랫동안 사랑받아온 정통 콤비네이션피자",
             "name":"수퍼슈프림",
             "img":"img/pizza-7.png",
             "bgimg":"img/bg-pizza-7.png",
-            "price":"26,170",
+            "price":"27,900",
             "orig":"34,900",
             "edge":"리치골드엣지",
-            "sale":"25%"
+            "sale":"7천원"
         },
         {
             "title":"갈릭버터의 진한풍미가 가득한 통새우가 듬뿍",
             "name":"갈릭버터쉬림프",
             "img":"img/pizza-8.png",
             "bgimg":"img/bg-pizza-8.png",
-            "price":"26,920",
+            "price":"28,900",
             "orig":"35,900",
             "edge":"리치골드엣지",
-            "sale":"25%"
+            "sale":"7천원"
         },
         {
             "title":"포테이토의 고소담백한 맛에 감칠맛을 더하다",
             "name":"베이컨포테이토",
             "img":"img/pizza-9.png",
             "bgimg":"img/bg-pizza-9.png",
-            "price":"26,170",
+            "price":"27,900",
             "orig":"34,900",
             "edge":"리치골드엣지",
-            "sale":"25%"
+            "sale":"7천원"
         },
         {
             "title":"단짠단짠 불고기가 가득 바삭한 씬도우",

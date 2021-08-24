@@ -90,7 +90,7 @@ function main(){
                                     <span>${v.price}원</span>
                                     <span>${v.orig}</span>
                                 </div>
-                                <h2>배달25%</h2>
+                                <h2>배달 ${v.sale} 할인</h2>
                                 <button></button>
                             </article>
                         </li>`
@@ -137,7 +137,7 @@ function main(){
                             </small>
                             <div>
                                 <span>${this.orig}원</span>
-                                <span>${this.sale}</span>
+                                <span>-${this.sale}</span>
                                 <span>${this.price}원</span>
                             </div>
                         </li>`;
@@ -214,7 +214,8 @@ function main(){
                 bkset.forEach(function(k){
                     deliList.innerHTML += obj[k].tag();
                 })
-
+                $( ':contains("15,900")' ).eq(16).children('span:nth-of-type(1)').css({ display : 'none'})
+                $( ':contains("15,900")' ).eq(16).children('span:nth-of-type(2)').css({ display : 'none'})
 
 
                 //담은 내역 2개 이상 높이

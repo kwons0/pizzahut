@@ -893,6 +893,10 @@ body .contents .recommend .pizza ul li article button::after {
           transform: translate(13px, 0);
 }
 
+body .contents .recommend .pizza ul li:nth-of-type(10) h2 {
+  display: none;
+}
+
 body .contents .order {
   width: 33%;
   min-width: 500px;
@@ -1292,6 +1296,11 @@ body .contents .banner .delivery > a {
   border-radius: 0 0 20px 20px;
   padding: 20px 0;
   font-size: 24px;
+}
+
+body .contents .banner .delivery > a:hover {
+  background: #B40E29;
+  color: #e3e3e3;
 }
 
 body .contents .banner .event {
