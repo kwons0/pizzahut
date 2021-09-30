@@ -199,11 +199,12 @@ function main(){
 
 
                 $('.delivery').fadeIn(700);     //포장배달 주문하기 등장
-                // 클릭한 피자의 주문 내역 추가
+                
                   
-              
+                // 클릭한 피자의 주문 내역 추가
                 bk.unshift($(this).parents('li').index());
                 obj[i].update();
+                console.log( obj[i] )
                
                 const set2 = new Set(bk);
                 const bkset = [...set2];

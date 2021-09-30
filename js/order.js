@@ -392,8 +392,9 @@ function sub(){
             return result;
         }
         function setPrice(){
-            $(finalPrice).text( sum(total).toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",") )
+            $(finalPrice).text( sum(total).toLocaleString() )
         }
+        setPrice()
         
 
     }
